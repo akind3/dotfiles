@@ -1,3 +1,10 @@
 set rnu
 set noeb vb t_vb=
 set clipboard=unnamed
+
+
+" set backgroud transparency
+hi Normal guibg=NONE ctermbg=NONE
+
+" set background dark
+" set background=dark
