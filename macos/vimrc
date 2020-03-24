@@ -6,6 +6,7 @@ set statusline+=%F
 set path +=autoload
 set path +=**
 set wildmenu
+set tags=tags
 nnoremap Y y$
 nnoremap V v$
 
@@ -58,19 +59,21 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-sensible'
 Plugin 'lifepillar/vim-solarized8'
-Plugin 'tomasr/molokai'
 Plugin 'dracula/vim', { 'name': 'dracula' }
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'tomasr/molokai'
 Plugin 'morhetz/gruvbox'
-Plugin 'romainl/vim-tinyMRU'
-Plugin 'mru.vim'
-
+" Plugin 'majutsushi/tagbar'
+" Plugin 'romainl/vim-tinyMRU'
+" Plugin 'mru.vim'
 " All of your Plugins must be added before the following line 
 call vundle#end() " required 
 
@@ -129,13 +132,11 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
 
 
-" ultisniips
-call vundle#begin()
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-call vundle#end() " required 
+" tagbar 
+nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+
+" ultisniips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
@@ -143,8 +144,5 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-" call vundle#begin()
-" Plugin 'ycm-core/YouCompleteMe'
-" call vundle#end()
-
-
+" deoplete 
+let g:deoplete#enable_at_startup = 1
