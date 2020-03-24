@@ -31,20 +31,6 @@ set wildignore+=*~,*.swp,*.tmp
 set wildignore+=*.bmp,*.jpg,*.png,*.gif,*.ico
 set wildignore+=*.pyc,*.pyo,*.pyd
 
-" fzf 
-" Mapping selecting mappings
-nmap <leader><tab> <plug>(fzf-maps-n)
-xmap <leader><tab> <plug>(fzf-maps-x)
-omap <leader><tab> <plug>(fzf-maps-o)
-
-" Insert mode completion
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
-
-" Advanced customization using Vim function
-inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
 " map settings 
 nmap <C-h> <C-w>h
@@ -100,3 +86,65 @@ filetype plugin indent off " required
 colorscheme molokai
 " colorscheme dracula
 " colorscheme gruvbox
+
+" set backgroud transparency
+hi Normal guibg=NONE ctermbg=NONE
+
+" set background dark
+" set background=dark
+
+" fzf 
+" Mapping selecting mappings
+let g:fzf_command_prefix = 'Fzf'
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+nnoremap <silent> <leader>o :FzfFiles<CR>
+nnoremap <silent> <leader>O :FzfFiles!<CR>
+nnoremap <silent> <leader>h :FzfHistory<CR>
+nnoremap <silent> <leader>: :FzfHistory:<CR>
+nnoremap <silent> <leader>/ :FzfHistory/<CR>
+nnoremap <silent> <leader>b :FzfBuffers<CR>
+nnoremap <silent> <leader>; :FzfCommands<CR>
+nnoremap <silent> <leader>l :FzfBlines<CR>
+nnoremap <silent> <leader>m :FzfMarks<CR>
+nnoremap <silent> <leader>s :FzfSnippets<CR>
+nnoremap <silent> <F1> :FzfHelptags<CR>
+inoremap <silent> <F1><ESC> :FzfHelptags<CR>
+
+nnoremap <silent> <leader>T :FzfTags<CR>
+nnoremap <silent> <leader>t :FzfBTags<CR>
+
+
+
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" Advanced customization using Vim function
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+
+
+
+" ultisniips
+call vundle#begin()
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+call vundle#end() " required 
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" call vundle#begin()
+" Plugin 'ycm-core/YouCompleteMe'
+" call vundle#end()
+
+
