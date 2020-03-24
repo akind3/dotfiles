@@ -1,3 +1,5 @@
+call plug#begin('~/.vim/plugged')
+
 set rnu
 set nu
 set clipboard=unnamed
@@ -7,20 +9,9 @@ set path +=autoload
 set path +=**
 set wildmenu
 set tags=tags
-nnoremap Y y$
-nnoremap V v$
-
-let mapleader = ','
-
 " split panel
 set splitbelow
 set splitright
-
-" NERDTree setting 
-" autocmd vimenter * NERDTree
-map <C-t> :NERDTreeToggle<CR>
-
-
 " ctrlp setting
 set wildmode=longest,list
 set wildignore+=*.a,*.o
@@ -28,7 +19,20 @@ set wildignore+=*.DS_Store,.git,.hg,.svn
 set wildignore+=*~,*.swp,*.tmp
 set wildignore+=*.bmp,*.jpg,*.png,*.gif,*.ico
 set wildignore+=*.pyc,*.pyo,*.pyd
+set nocompatible " be iMproved, required
 
+filetype on" required
+filetype plugin indent on " required
+
+let mapleader = ','
+" let g:rehash256 = 1
+
+nnoremap Y y$
+nnoremap V v$
+
+" NERDTree setting 
+" autocmd vimenter * NERDTree
+map <C-t> :NERDTreeToggle<CR>
 
 " map settings 
 nmap <C-h> <C-w>h
@@ -40,58 +44,6 @@ nmap <C-\>= <C-w>s
 " map <C-b> :browse oldfiles<CR> 
 map <C-n> <C-e>
 map <C-p> <C-y>
-
-" let g:molokai_original = 1
-" let g:rehash256 = 1
-
-set nocompatible " be iMproved, required
-filetype off " required
- 
-" set the runtime path to include Vundle and initialize
-" set rtp+=~/.vim/bundle/Vundle.vim
-"
-call plug#begin('~/.vim/plugged')
-Plug 'preservim/nerdtree'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tpope/vim-fugitive'
-Plug 'vim-syntastic/syntastic'
-Plug 'tpope/vim-sensible'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'tomasr/molokai'
-" All of your Plugins must be added before the following line 
-call plug#end()
-
-
-" set Vim-specific sequences for RGB colors
-set termguicolors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
-filetype plugin indent off " required
-
-" set background=dark
-" colorscheme solarized8
-colorscheme molokai
-" colorscheme dracula
-" colorscheme gruvbox
-
-" set backgroud transparency
-hi Normal guibg=NONE ctermbg=NONE
-
-" set background dark
-" set background=dark
-
-" fzf 
-" Mapping selecting mappings
-let g:fzf_command_prefix = 'Fzf'
-" let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-" let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Todo' } }
-let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
-
 
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
@@ -110,12 +62,8 @@ nnoremap <silent> <leader>s :FzfSnippets<CR>
 nnoremap <silent> <F1> :FzfHelptags<CR>
 nnoremap <silent> <leader>r :FzfRg<CR>
 inoremap <silent> <F1><ESC> :FzfHelptags<CR>
-
 nnoremap <silent> <leader>T :FzfTags<CR>
 nnoremap <silent> <leader>t :FzfBTags<CR>
-
-
-
 
 " Insert mode completion
 imap <c-x><c-k> <plug>(fzf-complete-word)
@@ -127,17 +75,45 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
 
-" tagbar 
-nnoremap <silent> <Leader>b :TagbarToggle<CR>
+
+Plug 'preservim/nerdtree'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+let g:fzf_command_prefix = 'Fzf'
+let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
 
 
-" ultisniips
+let g:python3_host_prog="/usr/bin/python3"
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete=1
+let g:deoplete#sources#jedi#enable_typeinfo = 0 "gotta go fast
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif "automatically closing the scratch window at the top of the vim window on finishing a complete or leaving insert
+
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'tpope/vim-fugitive'
+Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-sensible'
+
+Plug 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-" deoplete 
-let g:deoplete#enable_at_startup = 1
+Plug 'honza/vim-snippets'
+Plug 'tomasr/molokai'
+call plug#end()
+
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" let g:molokai_original = 1
+colorscheme molokai
+" set backgroud transparency
+hi Normal guibg=NONE ctermbg=NONE
+" set background=dark
+" set Vim-specific sequences for RGB colors
+"
