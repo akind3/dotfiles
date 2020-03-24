@@ -2,6 +2,9 @@
 alias sshc7='ssh ckt@c7work'
 alias pip3='/usr/local/bin/python3 -m pip'
 alias venv='/usr/local/bin/python3 -m venv --copies '
+alias ctags="`brew --prefix`/bin/ctags"
+alias vim="/usr/local/bin/nvim"
+
 
 
 # when filter https package using wireshark. uncomment below
@@ -156,3 +159,6 @@ export LANG=en_US.UTF-8
 
 # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=6
 #[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+# fzf settings 
+export FZF_DEFAULT_OPTS='--layout=reverse --border'
