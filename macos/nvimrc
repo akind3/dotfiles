@@ -24,6 +24,11 @@ set nocompatible " be iMproved, required
 filetype on" required
 filetype plugin indent on " required
 
+
+
+let g:fzf_command_prefix = 'Fzf'
+let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
+
 let mapleader = ','
 " let g:rehash256 = 1
 
@@ -44,13 +49,20 @@ nmap <C-\>= <C-w>s
 " map <C-b> :browse oldfiles<CR> 
 map <C-n> <C-e>
 map <C-p> <C-y>
+nnoremap <silent> <leader>cd :exe "cd" input('Which directory to switch: ') <CR>
+
+" nnoremap <silent> <leader>tn :exe "tabn" nr2char(getchar())<cr>
+" nnoremap <buffer> <leader> xyz :call SomeFunc(input('Param: '))<CR>
+" call fzf#vim#files(<q-args>, s:p(<bang>0), <bang>0)',
 
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
-nnoremap <silent> <leader>o :FzfFiles<CR>
+nnoremap <silent> <leader>o :exe "FzfFiles" input('Which directory to switch(Default is .): ')<CR>
+nnoremap <silent> <leader>of :exe "FzfNeighFiles" <CR>
+nnoremap <silent> <leader>od :exe "FzfNeighDirs " <CR>
 nnoremap <silent> <leader>O :FzfFiles!<CR>
-nnoremap <silent> <leader>k :FzfFiles ** <CR>
+" nnoremap <silent> <leader>k :FzfFiles ** <CR>
 nnoremap <silent> <leader>h :FzfHistory<CR>
 nnoremap <silent> <leader>: :FzfHistory:<CR>
 nnoremap <silent> <leader>/ :FzfHistory/<CR>
@@ -74,14 +86,55 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " Advanced customization using Vim function
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
+function! s:fzf_neighbouring_files()
+  let current_file =expand("%")
+  let cwd = fnamemodify(current_file, ':p:h')
+  let command = 'ag -g "" -f ' . cwd . ' --depth 0'
+
+  call fzf#run({
+        \ 'source': command,
+        \ 'sink':   'e',
+        \ 'options': '-m -x +s',
+        \ 'window': { 'width': 0.7, 'height': 0.5, 'highlight': 'Todo', 'border': 'sharp' } })
+endfunction
+
+function! s:fzf_neighbouring_dirs()
+  let current_file =expand("%")
+  let cwd = fnamemodify(current_file, ':p:h')
+  let command = 'fd --type d -d 1 --full-path ' ". cwd ." 
+  call fzf#run({
+        \ 'source': command,
+        \ 'sink':   'e',
+        \ 'options': '-m -x +s',
+        \ 'window': { 'width': 0.7, 'height': 0.5, 'highlight': 'Todo', 'border': 'sharp' } })
+endfunction
+
+command! FzfNeighFiles call s:fzf_neighbouring_files()
+command! FzfNeighDirs call s:fzf_neighbouring_dirs()
+
+" Denite 
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR>
+  \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> d
+  \ denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> p
+  \ denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> q
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> i
+  \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <Space>
+  \ denite#do_map('toggle_select').'j'
+endfunction
+
 
 
 Plug 'preservim/nerdtree'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-let g:fzf_command_prefix = 'Fzf'
-let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
 
 
 let g:python3_host_prog="/usr/bin/python3"
@@ -90,6 +143,9 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete=1
 let g:deoplete#sources#jedi#enable_typeinfo = 0 "gotta go fast
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif "automatically closing the scratch window at the top of the vim window on finishing a complete or leaving insert
+
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+
 
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-fugitive'

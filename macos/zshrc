@@ -9,6 +9,7 @@ alias vim="/usr/local/bin/nvim"
 
 # when filter https package using wireshark. uncomment below
 export SSLKEYLOGFILE="/Users/akin/tls/sslkeylog.log"
+export python3="/Users/akin/.pyenv/shims/python3" 
 
 export CPATH=`xcrun --show-sdk-path`/usr/include
 # export PATH="/usr/local/opt/openssl@1.1/bin:$PATH" 
@@ -161,4 +162,12 @@ export LANG=en_US.UTF-8
 #[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 # fzf settings 
+export FD_OPTION="--follow --exclude .git --exclude node_modules --exclude __pycache__ "
 export FZF_DEFAULT_OPTS='--layout=reverse --border'
+export FZF_DEFAULT_COMMAND="fd --type f $FD_OPTION"
+export FZF_CTRL_T_COMMAND="fd $FD_OPTION"
+export FZF_ALT_C_COMMAND="fd --type d $FD_OPTION"
+# iterm option c issue fix
+bindkey "ç" fzf-cd-widget
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
