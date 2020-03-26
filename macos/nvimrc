@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 set rnu
 set nu
+"set guifont="Fira Code:h16"
 set clipboard=unnamed
 " set clipboard=unnamedplus
 set statusline+=%F
@@ -27,7 +28,7 @@ filetype plugin indent on " required
 
 
 let g:fzf_command_prefix = 'Fzf'
-let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6, 'highlight': 'Todo', 'border': 'sharp' } }
 
 let mapleader = ','
 " let g:rehash256 = 1
@@ -49,7 +50,22 @@ nmap <C-\>= <C-w>s
 " map <C-b> :browse oldfiles<CR> 
 map <C-n> <C-e>
 map <C-p> <C-y>
-nnoremap <silent> <leader>cd :exe "cd" input('Which directory to switch: ') <CR>
+
+nnoremap <silent> <leader>n :new <CR>
+nnoremap <silent> <leader>vn :vnew <CR>
+nnoremap <silent> <leader>vs :vsplit <CR>
+nnoremap <silent> <leader>, :clo <CR>
+
+nnoremap <silent> <leader>tn :tabnew <CR>
+nnoremap <silent> <leader>tc :tabclo <CR>
+nnoremap <silent> <leader>tj :tabnext <CR>
+nnoremap <silent> <leader>tk :tabpre <CR>
+nnoremap <silent> <leader>th :tabfir <CR>
+nnoremap <silent> <leader>tl :tablast <CR>
+
+nnoremap <silent> <leader>b :Tagbar <CR>
+
+nnoremap <silent> <leader>cd :exe "cd" input('--------------------------------------------------------> Which directory to switch: ') <CR>
 
 " nnoremap <silent> <leader>tn :exe "tabn" nr2char(getchar())<cr>
 " nnoremap <buffer> <leader> xyz :call SomeFunc(input('Param: '))<CR>
@@ -58,24 +74,24 @@ nnoremap <silent> <leader>cd :exe "cd" input('Which directory to switch: ') <CR>
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
-nnoremap <silent> <leader>o :exe "FzfFiles" input('Which directory to switch(Default is .): ')<CR>
-nnoremap <silent> <leader>of :exe "FzfNeighFiles" <CR>
-nnoremap <silent> <leader>od :exe "FzfNeighDirs " <CR>
-nnoremap <silent> <leader>O :FzfFiles!<CR>
+nnoremap <silent> <leader>fo :exe "FzfFiles" input('Which directory to switch(Default is .): ')<CR>
+nnoremap <silent> <leader>ff :exe "FzfNeighFiles" <CR>
+nnoremap <silent> <leader>fd :exe "FzfNeighDirs " <CR>
+nnoremap <silent> <leader>F :FzfFiles!<CR>
 " nnoremap <silent> <leader>k :FzfFiles ** <CR>
-nnoremap <silent> <leader>h :FzfHistory<CR>
-nnoremap <silent> <leader>: :FzfHistory:<CR>
-nnoremap <silent> <leader>/ :FzfHistory/<CR>
-nnoremap <silent> <leader>b :FzfBuffers<CR>
-nnoremap <silent> <leader>; :FzfCommands<CR>
-nnoremap <silent> <leader>l :FzfBlines<CR>
-nnoremap <silent> <leader>m :FzfMarks<CR>
-nnoremap <silent> <leader>s :FzfSnippets<CR>
+nnoremap <silent> <leader>fh :FzfHistory<CR>
+nnoremap <silent> <leader>f: :FzfHistory:<CR>
+nnoremap <silent> <leader>f/ :FzfHistory/<CR>
+nnoremap <silent> <leader>fb :FzfBuffers<CR>
+nnoremap <silent> <leader>f; :FzfCommands<CR>
+nnoremap <silent> <leader>fl :FzfBlines<CR>
+nnoremap <silent> <leader>fm :FzfMarks<CR>
+nnoremap <silent> <leader>fs :FzfSnippets<CR>
 nnoremap <silent> <F1> :FzfHelptags<CR>
-nnoremap <silent> <leader>r :FzfRg<CR>
+nnoremap <silent> <leader>fr :FzfRg<CR>
 inoremap <silent> <F1><ESC> :FzfHelptags<CR>
-nnoremap <silent> <leader>T :FzfTags<CR>
-nnoremap <silent> <leader>t :FzfBTags<CR>
+nnoremap <silent> <leader>fT :FzfTags<CR>
+nnoremap <silent> <leader>ft :FzfBTags<CR>
 
 " Insert mode completion
 imap <c-x><c-k> <plug>(fzf-complete-word)
@@ -112,23 +128,6 @@ endfunction
 command! FzfNeighFiles call s:fzf_neighbouring_files()
 command! FzfNeighDirs call s:fzf_neighbouring_dirs()
 
-" Denite 
-autocmd FileType denite call s:denite_my_settings()
-function! s:denite_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-  nnoremap <silent><buffer><expr> d
-  \ denite#do_map('do_action', 'delete')
-  nnoremap <silent><buffer><expr> p
-  \ denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> q
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> i
-  \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <Space>
-  \ denite#do_map('toggle_select').'j'
-endfunction
-
 
 
 Plug 'preservim/nerdtree'
@@ -160,6 +159,28 @@ let g:UltiSnipsEditSplit="vertical"
 
 Plug 'honza/vim-snippets'
 Plug 'tomasr/molokai'
+
+"Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+"let g:pymode = 1
+
+"Plug 'itchyny/lightline.vim'
+"let g:lightline = {
+"      \ 'active': {
+"      \   'left': [ [ 'mode', 'paste' ],
+"      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+"      \ },
+"      \ 'component_function': {
+"      \   'gitbranch': 'FugitiveHead'
+"      \ },
+"      \ }
+
+"Plug 'szw/vim-tags'
+"Plug 'vim-scripts/taglist.vim'
+"let g:vim_tags_auto_generate = 1
+
+Plug 'majutsushi/tagbar'
+Plug 'mgedmin/pythonhelper.vim'
+
 call plug#end()
 
 set termguicolors
@@ -169,7 +190,8 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " let g:molokai_original = 1
 colorscheme molokai
 " set backgroud transparency
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 " set background=dark
 " set Vim-specific sequences for RGB colors
+"
 "

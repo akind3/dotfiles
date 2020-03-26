@@ -171,3 +171,7 @@ export FZF_ALT_C_COMMAND="fd --type d $FD_OPTION"
 bindkey "ç" fzf-cd-widget
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# pycharm terminal bug
+ll ~
