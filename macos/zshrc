@@ -4,6 +4,40 @@ alias pip3='/usr/local/bin/python3 -m pip'
 alias venv='/usr/local/bin/python3 -m venv --copies '
 alias ctags="`brew --prefix`/bin/ctags"
 alias vim="/usr/local/bin/nvim"
+alias gs="git status"
+alias gc="git checkout"
+alias gs="git status"
+# alias staust = 'gitst'
+alias gcf="git config"
+alias gft="git fetch"
+alias gbr="git branch"
+alias gbrv="git branch --v"
+alias ggeturl="git config --get remote.origin.url"
+# alias bs = bisect
+alias glg="git log"
+alias gcfg="git config --global"
+# alias cfga = config --global alias.
+alias gpu="git pull"
+# alias gcm="git commit -c HEAD"
+alias gps="git push"
+alias gls="git ls-remote --heads"
+# alias gudc="git reset HEAD~"
+alias gftg="git fetch --tags"
+alias gam="git commit -amend"
+alias gcmd="git commit --amend"
+alias grsh="git reset HEAD~"
+alias gcmi="git  commit --interactive -c HEAD --reset-author"
+alias gi="git --interactive"
+alias grss="git reset --soft"
+alias grmc="git rm --cached"
+alias gcp="git cherry-pick"
+alias gcpx="git cherry-pick -x"
+alias gbl="git blame"
+alias ggk="git gitk"
+alias gltn="git ls-tree -r HEAD~ --name-only"
+alias glt="git ls-tree -r HEAD~ --name-only"
+alias gltng="git ls-tree -r HEAD~ --name-only |grep"
+alias glgd="git log -p --full-diff"
 
 
 
@@ -24,6 +58,7 @@ export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 export PATH="/usr/local/opt/fzf/bin:$PATH"
 export PATH="/Users/akin/.vim/bundle/fzf/bin:$PATH"
+export PATH="/Users/akin/Library/Python/3.7/bin:$PATH"
 
 
 # export CFLAGS="${CFLAGS} -I/usr/local/include/mysql"
@@ -171,7 +206,3 @@ export FZF_ALT_C_COMMAND="fd --type d $FD_OPTION"
 bindkey "ç" fzf-cd-widget
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-
-# pycharm terminal bug
-ll ~
