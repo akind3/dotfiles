@@ -13,7 +13,6 @@ set tags=tags
 " split panel
 set splitbelow
 set splitright
-" ctrlp setting
 set wildmode=longest,list
 set wildignore+=*.a,*.o
 set wildignore+=*.DS_Store,.git,.hg,.svn
@@ -26,8 +25,6 @@ set nocompatible " be iMproved, required
 "filetype on" required
 "filetype indent on " required
 filetype plugin indent on " required
-
-
 
 let g:fzf_command_prefix = 'Fzf'
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6, 'highlight': 'Todo', 'border': 'sharp' } }
@@ -61,6 +58,8 @@ nnoremap <silent> <leader>vn :vnew <CR>
 nnoremap <silent> <leader>vs :vsplit <CR>
 nnoremap <silent> <leader>s :split <CR>
 nnoremap <silent> <leader>, :close! <CR>
+nnoremap <silent> <leader>q :quit <CR>
+nnoremap <silent> <leader>Q :quit! <CR>
 nnoremap <silent> <leader>. :w <CR>
 nnoremap <silent> <leader>/ :source % <CR>
 nnoremap <silent> <leader>I :PlugInstall <CR>
@@ -149,182 +148,14 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 
-let g:python3_host_prog="/usr/bin/python3"
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'deoplete-plugins/deoplete-jedi'
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete=1
-let g:deoplete#sources#jedi#enable_typeinfo = 0 "gotta go fast
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif 
+"let g:python3_host_prog="/usr/bin/python3"
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+""Plug 'deoplete-plugins/deoplete-jedi'
+"let g:deoplete#enable_at_startup = 1
+"let g:deoplete#auto_complete=1
+"let g:deoplete#sources#jedi#enable_typeinfo = 0 "gotta go fast
+"autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif 
 "automatically closing the scratch window at the top of the vim window on finishing a complete or leaving insert
-
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" " TextEdit might fail if hidden is not set.
-" set hidden
-
-" " Some servers have issues with backup files, see #649.
-" set nobackup
-" set nowritebackup
-
-" " Give more space for displaying messages.
-" set cmdheight=2
-
-" " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" " delays and poor user experience.
-" set updatetime=300
-
-" " Don't pass messages to |ins-completion-menu|.
-" set shortmess+=c
-
-" " Always show the signcolumn, otherwise it would shift the text each time
-" " diagnostics appear/become resolved.
-" set signcolumn=yes
-
-" " Use tab for trigger completion with characters ahead and navigate.
-" " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" " other plugin before putting this into your config.
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-" function! s:check_back_space() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
-
-" " Use <c-space> to trigger completion.
-" inoremap <silent><expr> <c-space> coc#refresh()
-
-" " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" " position. Coc only does snippet and additional edit on confirm.
-" if has('patch8.1.1068')
-"   " Use `complete_info` if your (Neo)Vim version supports it.
-"   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-" else
-"   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" endif
-
-" " Use `[g` and `]g` to navigate diagnostics
-" nmap <silent> [g <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" " GoTo code navigation.
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
-
-" " Use K to show documentation in preview window.
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-" function! s:show_documentation()
-"   if (index(['vim','help'], &filetype) >= 0)
-"     execute 'h '.expand('<cword>')
-"   else
-"     call CocAction('doHover')
-"   endif
-" endfunction
-
-" " Highlight the symbol and its references when holding the cursor.
-" autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" " Symbol renaming.
-" nmap <leader>rn <Plug>(coc-rename)
-" nmap <leader>rf <Plug>(coc-refactor)
-
-" " Formatting selected code.
-" xmap <leader>f  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
-
-" augroup mygroup
-"   autocmd!
-"   " Setup formatexpr specified filetype(s).
-"   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-"   " Update signature help on jump placeholder.
-"   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-" augroup end
-
-" " Applying codeAction to the selected region.
-" " Example: `<leader>aap` for current paragraph
-" xmap <leader>a  <Plug>(coc-codeaction-selected)
-" nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" " Remap keys for applying codeAction to the current line.
-" nmap <leader>ac  <Plug>(coc-codeaction)
-" " Apply AutoFix to problem on the current line.
-" nmap <leader>qf  <Plug>(coc-fix-current)
-
-" " Introduce function text object
-" " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-" xmap if <Plug>(coc-funcobj-i)
-" xmap af <Plug>(coc-funcobj-a)
-" omap if <Plug>(coc-funcobj-i)
-" omap af <Plug>(coc-funcobj-a)
-
-" " Use <TAB> for selections ranges.
-" " NOTE: Requires 'textDocument/selectionRange' support from the language server.
-" " coc-tsserver, coc-python are the examples of servers that support it.
-" nmap <silent> <TAB> <Plug>(coc-range-select)
-" xmap <silent> <TAB> <Plug>(coc-range-select)
-
-" " Add `:Format` command to format current buffer.
-" command! -nargs=0 Format :call CocAction('format')
-
-" " Add `:Fold` command to fold current buffer.
-" command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" " Add `:OR` command for organize imports of the current buffer.
-" command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" " Add (Neo)Vim's native statusline support.
-" " NOTE: Please see `:h coc-status` for integrations with external plugins that
-" " provide custom statusline: lightline.vim, vim-airline.
-" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-" " Mappings using CoCList:
-" " Show all diagnostics.
-" nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" " Manage extensions.
-" nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" " Show commands.
-" nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" " Find symbol of current document.
-" nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" " Search workspace symbols.
-" nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" " Do default action for next item.
-" nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" " Do default action for previous item.
-" nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" " Resume latest coc list.
-" nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-" " Use <C-l> for trigger snippet expand.
-" " imap <C-l> <Plug>(coc-snippets-expand)
-" " Use <C-j> for select text for visual placeholder of snippet.
-" " vmap <C-j> <Plug>(coc-snippets-select)
-" " Use <C-j> for jump to next placeholder, it's default of coc.nvim
-" let g:coc_snippet_next = '<c-j>'
-" " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-" let g:coc_snippet_prev = '<c-k>'
-" " Use <C-j> for both expand and jump (make expand higher priority.)
-" imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? coc#_select_confirm() :
-"       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-
-" function! s:check_back_space() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
-
-" let g:coc_snippet_next = '<tab>'
-
 
 "Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'Shougo/neosnippet.vim'
@@ -347,6 +178,22 @@ nmap <silent><leader>gb :Gblame<cr>
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" for airline
+let g:airline_powerline_fonts=1
+let g:airline_theme = 'wombat'
+let g:airline#extensions#tabline#enabled = 1
+function! ArilineInit()
+		let g:airline_section_a = airline#section#create(['mode', ' ', 'branch'])
+		let g:airline_section_b = airline#section#create_left(['ffenc', 'hunks', '%F'])
+		"let g:airline_section_c = airline#section#create(['filetype'])
+		let g:airline_section_x = airline#section#create(['%P'])
+		let g:airline_section_y = airline#section#create(['%B'])
+		let g:airline_section_z = airline#section#create_right(['%l', '%c'])
+endfunction
+autocmd VimEnter * call ArilineInit()
+
 "Plug 'tpope/vim-sensible'
 " Plug 'tpope/vim-markdown'
 " Plug 'godlygeek/tabular'
@@ -370,25 +217,85 @@ Plug 'vim-syntastic/syntastic'
 " let g:UltiSnipsEditSplit="vertical"
 
 Plug 'tomasr/molokai'
-" Plug 'rafi/awesome-vim-colorschemes'
+Plug 'rafi/awesome-vim-colorschemes'
 
 
-"Plug 'davidhalter/jedi-vim'
-" Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plug 'neoclide/coc.nvim'
+" coc.nvim settings
+" ---
 
-" Plug 'itchyny/lightline.vim'
-" let g:lightline = {
-"       \ 'active': {
-"       \   'left': [ [ 'mode', 'paste' ],
-"       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-"       \ },
-"       \ 'component_function': {
-"       \   'gitbranch': 'FugitiveHead'
-"       \ },
-"       \ }
+" Don't load the defx-git plugin file, not needed
+let b:defx_git_loaded = 1
 
-      " \   'gitbranch': 'FugitiveStatusline'
-      "
+" Use <Tab> for trigger completion and navigate to the next complete item
+let g:coc_snippet_next = '<tab>'
+inoremap <silent><expr> <Tab>
+	\ pumvisible() ? "\<C-n>" :
+	\ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+	\ <SID>check_back_space() ? "\<Tab>" :
+	\ coc#refresh()
+
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() :
+	\ delimitMate#WithinEmptyPair() ? "\<C-R>=delimitMate#ExpandReturn()\<CR>" :
+	\"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return ! col || getline('.')[col - 1] =~? '\s'
+endfunction
+
+augroup user_plugin_coc
+	autocmd!
+	autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
+augroup END
+
+" use <c-space>for trigger completion
+inoremap <silent><expr> <C-space> coc#refresh()
+
+" Movement within 'ins-completion-menu'
+imap <expr><C-j>   pumvisible() ? "\<Down>" : "\<C-j>"
+imap <expr><C-k>   pumvisible() ? "\<Up>" : "\<C-k>"
+
+" Scroll pages in menu
+inoremap <expr><C-f> pumvisible() ? "\<PageDown>" : "\<Right>"
+inoremap <expr><C-b> pumvisible() ? "\<PageUp>" : "\<Left>"
+imap     <expr><C-d> pumvisible() ? "\<PageDown>" : "\<C-d>"
+imap     <expr><C-u> pumvisible() ? "\<PageUp>" : "\<C-u>"
+
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gf <Plug>(coc-rename)	
+nmap <silent> gR <Plug>(coc-refactor)	
+
+nmap <silent> <leader>cc :CocConfig<CR>
+
+nmap gs <Plug>(coc-git-chunkinfo)
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" show commit contains current position
+nmap gC <Plug>(coc-git-commit)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+	if (index(['vim', 'help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	else
+		let l:found = CocAction('doHover')
+	endif
+endfunction
+
+
 Plug 'majutsushi/tagbar'
 let g:tagbar_foldlevel = 2
 " Plug 'liuchengxu/vista.vim'
@@ -399,15 +306,6 @@ let g:tagbar_foldlevel = 2
 " Plud 'Terryma/vim-multiple-cursors'
 " let g:multi_cursor_use_default_mapping=1
 
-" Default mapping
-let g:multi_cursor_start_word_key      = '<C-n>'
-let g:multi_cursor_select_all_word_key = '<A-n>'
-let g:multi_cursor_start_key           = 'g<C-n>'
-let g:multi_cursor_select_all_key      = 'g<A-n>'
-let g:multi_cursor_next_key            = '<C-n>'
-let g:multi_cursor_prev_key            = '<C-p>'
-let g:multi_cursor_skip_key            = '<C-x>'
-let g:multi_cursor_quit_key            = '<Esc>'
 
 call plug#end()
 
@@ -420,6 +318,6 @@ colorscheme molokai
 " colorscheme atom
 " colorscheme onedark
 " set backgroud transparency
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 " set background=dark
 " set Vim-specific sequences for RGB colors
