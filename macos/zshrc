@@ -76,25 +76,21 @@ export LDFLAGS="-L/usr/local/opt/openssl/lib  $LDFLAGS"
 # export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/mysql/lib/pkgconfig"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig $PKG_CONFIG_PATH"
 
-# Path to your oh-my-zsh installation.
-export ZSH="/Users/akin/.oh-my-zsh"
-
-# when filter https package using wireshark. uncomment below
-export SSLKEYLOGFILE="/Users/akin/tls/sslkeylog.log"
-# export python3="/Users/akin/.pyenv/shims/python3" 
-# for python compilation
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/akin/.oh-my-zsh"
+
+ZSH_THEME="bira"
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="muse"
 # ZSH_THEME="cloud"
-ZSH_THEME="bira"
-# ZSH_THEME="agnoster" # not compatable
+
+
+# when filter https package using wireshark. uncomment below
+export SSLKEYLOGFILE="/Users/akin/tls/sslkeylog.log"
+export python3="/Users/akin/.pyenv/shims/python3" 
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -202,3 +198,6 @@ export FZF_ALT_C_COMMAND="fd --type d $FD_OPTION"
 bindkey "ç" fzf-cd-widget
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+
