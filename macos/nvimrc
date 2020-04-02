@@ -22,6 +22,7 @@ set wildignore+=*.pyc,*.pyo,*.pyd,__pycache__
 set wildignore+=.idea,.vscode
 set nocompatible " be iMproved, required
 
+
 "filetype on" required
 "filetype indent on " required
 filetype plugin indent on " required
@@ -110,6 +111,7 @@ imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
+
 
 " Advanced customization using Vim function
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
@@ -237,9 +239,9 @@ inoremap <silent><expr> <Tab>
 
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() :
-	\ delimitMate#WithinEmptyPair() ? "\<C-R>=delimitMate#ExpandReturn()\<CR>" :
-	\"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() :
+" 	\ delimitMate#WithinEmptyPair() ? "\<C-R>=delimitMate#ExpandReturn()\<CR>" :
+" 	\"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! s:check_back_space() abort
 	let col = col('.') - 1
