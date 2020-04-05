@@ -33,8 +33,9 @@ let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6, 'highlight': 'Todo
 let mapleader = ','
 " let g:rehash256 = 1
 
-nnoremap Y y$
-nnoremap V v$
+nnoremap Y 0y$
+nnoremap V 0v$
+
 
 " NERDTree setting 
 " autocmd vimenter * NERDTree
@@ -53,6 +54,10 @@ nmap <leader>h <C-w>h
 nmap <leader>j <C-w>j
 nmap <leader>k <C-w>k
 nmap <leader>l <C-w>l
+
+" nnoremap <silent> <leader>tm :TableModeToggle<CR>
+" nnoremap <silent> <leader>tr :TableModeRealign<CR>
+
 
 nnoremap <silent> <leader>n :new <CR>
 nnoremap <silent> <leader>vn :vnew <CR>
@@ -203,6 +208,7 @@ autocmd VimEnter * call ArilineInit()
 " Plug 'MichaelMure/mdr'
 Plug 'skanehira/preview-markdown.vim'
 let g:preview_markdown_parser = 'glow'
+" let g:preview_markdown_parser = 'mdcat'
 let g:preview_markdown_vertical = 1
 let g:preview_makrdown_auto_update =1
 nmap <silent> <leader>; :PreviewMarkdown<CR>
@@ -307,6 +313,8 @@ let g:tagbar_foldlevel = 2
 " let g:vista_fzf_preview = ['right:50%']
 " Plud 'Terryma/vim-multiple-cursors'
 " let g:multi_cursor_use_default_mapping=1
+Plug 'dhruvasagar/vim-table-mode'
+" let g:table_mode_delimiter = ' '
 
 
 call plug#end()
