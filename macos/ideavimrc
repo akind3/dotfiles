@@ -1,64 +1,71 @@
-" {{{ GENERAL SETTINGS
-	set rnu
-	set nu
-	set clipboard=unnamed
+set nocompatible " be iMproved, required
+set nu
+set rnu
+"set guifont="Fira Code:h16"
+set clipboard=unnamed
+" set clipboard=unnamedplus
+set path +=autoload
+set path +=**
+set wildmenu
+set tags=tags
+set splitbelow
+set splitright
+set wildmode=longest,list
+set wildignore+=*.a,*.o
+set wildignore+=*.DS_Store,.git,.hg,.svn
+set wildignore+=*~,*.swp,*.tmp
+set wildignore+=*.bmp,*.jpg,*.png,*.gif,*.ico
+set wildignore+=*.pyc,*.pyo,*.pyd,__pycache__
+set wildignore+=.idea,.vscode
 
-	let mapleader = ','
+"filetype on" required
+"filetype indent on " required
+filetype plugin indent on " required
 
-	nnoremap Y 0y$
-	nnoremap V 0v$
-	nnoremap C 0d$
-	nnoremap D 0d$
+let mapleader = ','
+" let g:rehash256 = 1
 
-	inoremap <C-h> <left>
-	inoremap <C-l> <right>
-	nnoremap <C-n> <C-e>
-	nnoremap <C-p> <C-y>
-	" inoremap <C-j> <down>
-	" inoremap <C-k> <up>
-	inoremap <C-k> <PageUp>
-	inoremap <C-j> <PageDown>
-	nnoremap <C-h> <C-w>h
-	nnoremap <C-j> <C-w>j
-	nnoremap <C-k> <C-w>k
-	nnoremap <C-l> <C-w>l
-	nnoremap <leader>h <C-w>h
-	nnoremap <leader>j <C-w>j
-	nnoremap <leader>k <C-w>k
-	nnoremap <leader>l <C-w>l
+nnoremap Y 0y$
+nnoremap V 0v$
+nnoremap C 0d$
+nnoremap D 0d$
 
-	inoremap <C-x> <Bs>
-	nnoremap <C-x> <Bs>
+inoremap <C-h> <left>
+inoremap <C-l> <right>
+inoremap <C-j> <down>
+inoremap <C-k> <up>
 
-	nnoremap <Up> <Nop>
-	nnoremap <Down> <Nop>
-	nnoremap <Left> <Nop>
-	nnoremap <Right> <Nop>
-	nnoremap <BS> <Nop>
-	nnoremap <Del> <Nop>
+nnoremap <C-h> <left>
+nnoremap <C-l> <right>
+nnoremap <C-j> <C-e>
+nnoremap <C-k> <C-y>
 
-	inoremap <Up> <Nop>
-	inoremap <Down> <Nop>
-	inoremap <Left> <Nop>
-	inoremap <Right> <Nop>
-	inoremap <BS> <Nop>
-	inoremap <Del> <Nop>
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
 
-	nnoremap <silent> <leader>, :close! <CR>
-	nnoremap <silent> <leader>. :w <CR>
-	nnoremap <silent> <leader>q :quit <CR>
-	nnoremap <silent> <leader>Q :quit! <CR>
+inoremap <C-x> <Bs>
+nnoremap <C-x> <Bs>
 
-	nnoremap <silent> <leader>vs :vsplit <CR>
-	nnoremap <silent> <leader>s :split <CR>
-	nnoremap <silent> <leader>n :new <CR>
-	nnoremap <silent> <leader>vn :vnew <CR>
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+nnoremap <BS> <Nop>
+nnoremap <Del> <Nop>
 
-	nnoremap <silent> <leader>tn :tabnew <CR>
-	nnoremap <silent> <leader>tc :tabclo <CR>
-	nnoremap <silent> <leader>tj :tabnext <CR>
-	nnoremap <silent> <leader>tk :tabpre <CR>
-	nnoremap <silent> <leader>th :tabfir <CR>
-	nnoremap <silent> <leader>tl :tablast <CR>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <BS> <Nop>
+inoremap <Del> <Nop>
 
-" GENERAL SETTINGS }}}
+nnoremap <silent> <leader>vs :vsplit <CR>
+nnoremap <silent> <leader>s :split <CR>
+nnoremap <silent> <leader>, :close! <CR>
+nnoremap <silent> <leader>q :quit <CR>
+nnoremap <silent> <leader>Q :quit! <CR>
+nnoremap <silent> <leader>. :w <CR>
+nnoremap <silent> <leader>/ :source % <CR>
