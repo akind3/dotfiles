@@ -35,8 +35,8 @@ call plug#begin('~/.vim/plugged')
 	nnoremap C 0d$
 	nnoremap D 0d$
 
-	" inoremap <C-h> <left>
-	" inoremap <C-l> <right>
+	inoremap <C-h> <left>
+	inoremap <C-l> <right>
 	inoremap <C-j> <down>
 	inoremap <C-k> <up>
 
@@ -50,13 +50,10 @@ call plug#begin('~/.vim/plugged')
 	nnoremap <leader>k <C-w>k
 	nnoremap <leader>l <C-w>l
 
-	" inoremap <silent> <leader>d  <Bs>
-	" nnoremap <silent> <leader>d  <Bs>
-
-	inoremap <C-x>  <Nop>
-	nnoremap <C-x>  <Nop>
-	inoremap <C-x>  <Bs>
-	nnoremap <C-x>  <Bs>
+	" inoremap <C-x>  <ESC>
+	" nnoremap <c-x>  <ESC>
+	inoremap <C-m>  <Bs>
+	nnoremap <C-m>  <Bs>
 
 	nnoremap <Up> <Nop>
 	nnoremap <Down> <Nop>
