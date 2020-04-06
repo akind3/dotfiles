@@ -1,0 +1,64 @@
+" {{{ GENERAL SETTINGS
+	set rnu
+	set nu
+	set clipboard=unnamed
+
+	let mapleader = ','
+
+	nnoremap Y 0y$
+	nnoremap V 0v$
+	nnoremap C 0d$
+	nnoremap D 0d$
+
+	inoremap <C-h> <left>
+	inoremap <C-l> <right>
+	nnoremap <C-n> <C-e>
+	nnoremap <C-p> <C-y>
+	" inoremap <C-j> <down>
+	" inoremap <C-k> <up>
+	inoremap <C-k> <PageUp>
+	inoremap <C-j> <PageDown>
+	nnoremap <C-h> <C-w>h
+	nnoremap <C-j> <C-w>j
+	nnoremap <C-k> <C-w>k
+	nnoremap <C-l> <C-w>l
+	nnoremap <leader>h <C-w>h
+	nnoremap <leader>j <C-w>j
+	nnoremap <leader>k <C-w>k
+	nnoremap <leader>l <C-w>l
+
+	inoremap <C-x> <Bs>
+	nnoremap <C-x> <Bs>
+
+	nnoremap <Up> <Nop>
+	nnoremap <Down> <Nop>
+	nnoremap <Left> <Nop>
+	nnoremap <Right> <Nop>
+	nnoremap <BS> <Nop>
+	nnoremap <Del> <Nop>
+
+	inoremap <Up> <Nop>
+	inoremap <Down> <Nop>
+	inoremap <Left> <Nop>
+	inoremap <Right> <Nop>
+	inoremap <BS> <Nop>
+	inoremap <Del> <Nop>
+
+	nnoremap <silent> <leader>, :close! <CR>
+	nnoremap <silent> <leader>. :w <CR>
+	nnoremap <silent> <leader>q :quit <CR>
+	nnoremap <silent> <leader>Q :quit! <CR>
+
+	nnoremap <silent> <leader>vs :vsplit <CR>
+	nnoremap <silent> <leader>s :split <CR>
+	nnoremap <silent> <leader>n :new <CR>
+	nnoremap <silent> <leader>vn :vnew <CR>
+
+	nnoremap <silent> <leader>tn :tabnew <CR>
+	nnoremap <silent> <leader>tc :tabclo <CR>
+	nnoremap <silent> <leader>tj :tabnext <CR>
+	nnoremap <silent> <leader>tk :tabpre <CR>
+	nnoremap <silent> <leader>th :tabfir <CR>
+	nnoremap <silent> <leader>tl :tablast <CR>
+
+" GENERAL SETTINGS }}}
