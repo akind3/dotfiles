@@ -21,7 +21,7 @@ call plug#begin('~/.vim/plugged')
 	set wildignore+=*.bmp,*.jpg,*.png,*.gif,*.ico
 	set wildignore+=*.pyc,*.pyo,*.pyd,__pycache__
 	set wildignore+=.idea,.vscode
-	set nowrap
+	" set nowrap
 
 	"filetype on" required
 	"filetype indent on " required
@@ -42,8 +42,10 @@ call plug#begin('~/.vim/plugged')
 
 	nnoremap <C-j> <C-e>
 	nnoremap <C-k> <C-y>
-	nnoremap <C-l> zl
-	nnoremap <C-h> zh
+	nnoremap <C-l> <right> 
+	nnoremap <C-h> <left>
+	" nnoremap <C-l> zl
+	" nnoremap <C-h> zh
 
 	nnoremap <leader>h <C-w>h
 	nnoremap <leader>j <C-w>j
