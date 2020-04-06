@@ -12,6 +12,7 @@ set wildignore+=*~,*.swp,*.tmp
 set wildignore+=*.bmp,*.jpg,*.png,*.gif,*.ico
 set wildignore+=*.pyc,*.pyo,*.pyd,__pycache__
 set wildignore+=.idea,.vscode
+set nowrap
 
 "filetype on" required
 "filetype indent on " required
@@ -29,18 +30,22 @@ inoremap <C-l> <right>
 inoremap <C-j> <down>
 inoremap <C-k> <up>
 
-nnoremap <C-h> <left>
-nnoremap <C-l> <right>
 nnoremap <C-j> <C-e>
 nnoremap <C-k> <C-y>
+nnoremap <C-l> zl
+nnoremap <C-h> zh
+
 
 nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 
-inoremap <C-x> <Bs>
-nnoremap <C-x> <Bs>
+inoremap <C-x>  <Nop>
+nnoremap <C-x>  <Nop>
+inoremap <C-x>  <Bs>
+nnoremap <C-x>  <Bs>
+
 
 nnoremap <Up> <Nop>
 nnoremap <Down> <Nop>
