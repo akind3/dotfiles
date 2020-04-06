@@ -37,6 +37,26 @@ nnoremap Y 0y$
 nnoremap V 0v$
 
 
+inoremap <C-l> <right>
+inoremap <C-h> <left>
+inoremap <C-j> <down>
+inoremap <C-k> <up>
+inoremap <C-m> <Bs>
+
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+nnoremap <BS> <Nop>
+nnoremap <Del> <Nop>
+
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <BS> <Nop>
+inoremap <Del> <Nop>
+
 " NERDTree setting 
 " autocmd vimenter * NERDTree
 " map <C-t> :NERDTreeToggle<CR>
@@ -230,7 +250,7 @@ Plug 'rafi/awesome-vim-colorschemes'
 
 Plug 'neoclide/coc.nvim'
 " coc.nvim settings
-" ---
+" --
 
 " Don't load the defx-git plugin file, not needed
 let b:defx_git_loaded = 1
@@ -263,8 +283,8 @@ augroup END
 inoremap <silent><expr> <C-space> coc#refresh()
 
 " Movement within 'ins-completion-menu'
-imap <expr><C-j>   pumvisible() ? "\<Down>" : "\<C-j>"
-imap <expr><C-k>   pumvisible() ? "\<Up>" : "\<C-k>"
+" imap <expr><C-j>   pumvisible() ? "\<Down>" : "\<C-j>"
+" imap <expr><C-k>   pumvisible() ? "\<Up>" : "\<C-k>"
 
 " Scroll pages in menu
 inoremap <expr><C-f> pumvisible() ? "\<PageDown>" : "\<Right>"
