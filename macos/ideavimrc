@@ -1,15 +1,11 @@
 set nocompatible " be iMproved, required
 set nu
 set rnu
-"set guifont="Fira Code:h16"
 set clipboard=unnamed
-" set clipboard=unnamedplus
 set path +=autoload
 set path +=**
 set wildmenu
 set tags=tags
-set splitbelow
-set splitright
 set wildmode=longest,list
 set wildignore+=*.a,*.o
 set wildignore+=*.DS_Store,.git,.hg,.svn
@@ -20,10 +16,9 @@ set wildignore+=.idea,.vscode
 
 "filetype on" required
 "filetype indent on " required
-filetype plugin indent on " required
+" filetype plugin indent on " required
 
 let mapleader = ','
-" let g:rehash256 = 1
 
 nnoremap Y 0y$
 nnoremap V 0v$
@@ -68,4 +63,3 @@ nnoremap <silent> <leader>, :close! <CR>
 nnoremap <silent> <leader>q :quit <CR>
 nnoremap <silent> <leader>Q :quit! <CR>
 nnoremap <silent> <leader>. :w <CR>
-nnoremap <silent> <leader>/ :source % <CR>
