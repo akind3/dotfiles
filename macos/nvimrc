@@ -46,29 +46,25 @@ call plug#begin('~/.vim/plugged')
 	nnoremap <C-h> <left>
 	" nnoremap <C-l> zl
 	" nnoremap <C-h> zh
+	inoremap <silent> <C-c> <Bs>
 
 	nnoremap <leader>h <C-w>h
 	nnoremap <leader>j <C-w>j
 	nnoremap <leader>k <C-w>k
 	nnoremap <leader>l <C-w>l
 
-	" inoremap <C-x>  <ESC>
-	" nnoremap <c-x>  <ESC>
-	inoremap <C-m>  <Bs>
-	nnoremap <C-m>  <Bs>
-
 	nnoremap <Up> <Nop>
 	nnoremap <Down> <Nop>
 	nnoremap <Left> <Nop>
 	nnoremap <Right> <Nop>
-	nnoremap <BS> <Nop>
+	nnoremap <Bs> <Nop>
 	nnoremap <Del> <Nop>
 
 	inoremap <Up> <Nop>
 	inoremap <Down> <Nop>
 	inoremap <Left> <Nop>
 	inoremap <Right> <Nop>
-	inoremap <BS> <Nop>
+	inoremap <Bs> <Nop>
 	inoremap <Del> <Nop>
 
 	nnoremap <silent> <leader>n :new <CR>

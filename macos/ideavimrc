@@ -36,6 +36,7 @@ nnoremap <C-l> <right>
 nnoremap <C-h> <left>
 " nnoremap <C-l> zl
 " nnoremap <C-h> zh
+inoremap <silent> <C-c> <Bs>
 
 nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
