@@ -1,0 +1,148 @@
+set rnu
+set nu
+set clipboard=unnamed
+" set clipboard=unnamedplus
+set statusline+=%F
+set path +=autoload
+set path +=**
+set wildmenu
+set tags=tags
+nnoremap Y y$
+nnoremap V v$
+
+let mapleader = ','
+
+" split panel
+set splitbelow
+set splitright
+
+" NERDTree setting 
+" autocmd vimenter * NERDTree
+map <C-t> :NERDTreeToggle<CR>
+
+
+" ctrlp setting
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+map <S-f> :CtrlPMRU<CR>   
+set wildmode=longest,list
+set wildignore+=*.a,*.o
+set wildignore+=*.DS_Store,.git,.hg,.svn
+set wildignore+=*~,*.swp,*.tmp
+set wildignore+=*.bmp,*.jpg,*.png,*.gif,*.ico
+set wildignore+=*.pyc,*.pyo,*.pyd
+
+
+" map settings 
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+nmap <C-\>\ <C-w>v
+nmap <C-\>= <C-w>s
+map <C-b> :browse oldfiles<CR> 
+map <C-n> <C-e>
+map <C-p> <C-y>
+
+" let g:molokai_original = 1
+" let g:rehash256 = 1
+
+set nocompatible " be iMproved, required
+filetype off " required
+ 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+ 
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-sensible'
+Plugin 'lifepillar/vim-solarized8'
+Plugin 'dracula/vim', { 'name': 'dracula' }
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'tomasr/molokai'
+Plugin 'morhetz/gruvbox'
+" Plugin 'majutsushi/tagbar'
+" Plugin 'romainl/vim-tinyMRU'
+" Plugin 'mru.vim'
+" All of your Plugins must be added before the following line 
+call vundle#end() " required 
+
+" set Vim-specific sequences for RGB colors
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+filetype plugin indent off " required
+
+" set background=dark
+" colorscheme solarized8
+colorscheme molokai
+" colorscheme dracula
+" colorscheme gruvbox
+
+" set backgroud transparency
+hi Normal guibg=NONE ctermbg=NONE
+
+" set background dark
+" set background=dark
+
+" fzf 
+" Mapping selecting mappings
+let g:fzf_command_prefix = 'Fzf'
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+nnoremap <silent> <leader>o :FzfFiles<CR>
+nnoremap <silent> <leader>O :FzfFiles!<CR>
+nnoremap <silent> <leader>h :FzfHistory<CR>
+nnoremap <silent> <leader>: :FzfHistory:<CR>
+nnoremap <silent> <leader>/ :FzfHistory/<CR>
+nnoremap <silent> <leader>b :FzfBuffers<CR>
+nnoremap <silent> <leader>; :FzfCommands<CR>
+nnoremap <silent> <leader>l :FzfBlines<CR>
+nnoremap <silent> <leader>m :FzfMarks<CR>
+nnoremap <silent> <leader>s :FzfSnippets<CR>
+nnoremap <silent> <F1> :FzfHelptags<CR>
+inoremap <silent> <F1><ESC> :FzfHelptags<CR>
+
+nnoremap <silent> <leader>T :FzfTags<CR>
+nnoremap <silent> <leader>t :FzfBTags<CR>
+
+
+
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" Advanced customization using Vim function
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+
+
+
+" tagbar 
+nnoremap <silent> <Leader>b :TagbarToggle<CR>
+
+
+" ultisniips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" deoplete 
+let g:deoplete#enable_at_startup = 1
