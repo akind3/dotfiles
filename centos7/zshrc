@@ -1,3 +1,20 @@
+#ohmyzsh 
+#install 
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+#zplug  
+#install zplug
+#curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+#
+#install autojump script 
+#sudo yum -y install autojump-zsh
+#
+#source ~/.zplug/init.zsh
+#zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+#zplug 'zsh-users/zsh-autosuggestions'
+#zplug 'zsh-users/zsh-completions'
+#zplug 'zsh-users/zsh-syntax-highlighting'
+
 # aliases 
 alias vim="/usr/bin/nvim"
 alias gs="git status"
@@ -151,14 +168,6 @@ plugins=(autojump vi-mode tmux git  zsh-autosuggestions zsh-completions history-
 # plugins=(git autojump vi-mode )
 autoload -U compinit && compinit
 
-
-#zplug  
-#source ~/.zplug/init.zsh
-#zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-#zplug 'zsh-users/zsh-autosuggestions'
-#zplug 'zsh-users/zsh-completions'
-#zplug 'zsh-users/zsh-syntax-highlighting'
-# centos7 : sudo yum -y install autojump-zsh
 
 
 source $ZSH/oh-my-zsh.sh
