@@ -1,20 +1,3 @@
-#ohmyzsh
-#install
-#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-#zplug
-#install zplug
-#curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-#
-#install autojump script
-#brew install autojump
-#
-#source ~/.zplug/init.zsh
-#zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-#zplug 'zsh-users/zsh-autosuggestions'
-#zplug 'zsh-users/zsh-completions'
-#zplug 'zsh-users/zsh-syntax-highlighting'
-
 # aliases 
 alias sshc7='ssh ckt@c7work'
 alias pip3='/usr/local/bin/python3 -m pip'
@@ -221,5 +204,20 @@ bindkey "ç" fzf-cd-widget
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+#ohmyzsh
+#install
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+#zplug
+#install zplug
+#curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+#
+#install autojump script
+#brew install autojump
+#
+#source ~/.zplug/init.zsh
+#zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+#zplug 'zsh-users/zsh-autosuggestions'
+#zplug 'zsh-users/zsh-completions'
+#zplug 'zsh-users/zsh-syntax-highlighting'
 
