@@ -43,6 +43,8 @@ alias glgd="git log -p --full-diff"
 alias gnpm="npm -g --save-dev" 
 alias npm="npm -g --save-dev" 
 alias lnpm="npm --save-dev" 
+alias gctakin="git remote set-url origin "
+
 export CPATH=`xcrun --show-sdk-path`/usr/include
 # export PATH="/usr/local/opt/openssl@1.1/bin:$PATH" 
 # export PATH="/usr/local/opt/openjdk/bin:$PATH"
