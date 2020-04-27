@@ -6,50 +6,22 @@ Plug 'majutsushi/tagbar'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'skanehira/preview-markdown.vim'
-Plug 'vim-syntastic/syntastic'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-Plug 'gu-fan/riv.vim' " rst
-Plug 'plasticboy/vim-markdown' " makrdown
-Plug 'rhysd/vim-gfm-syntax' " github makrdown
-Plug 'sukima/xmledit' " xml
-Plug 'elzr/vim-json'  " json
-Plug 'cespare/vim-toml' " toml
-" Plug 'mrk21/yaml-vim' " yaml
-Plug 'towolf/vim-helm' " yaml + gotmpl + sprig
-Plug 'pearofducks/ansible-vim' " ansible yaml
-Plug 'hashivim/vim-terraform'  " terraform
-Plug 'hail2u/vim-css3-syntax' " css
-Plug 'othree/csscomplete.vim' " css complete
-Plug 'cakebaker/scss-syntax.vim' " scss syntax
-Plug 'othree/html5.vim' " html5
-Plug 'groenewege/vim-less' " less
-Plug 'iloginow/vim-stylus' " Stylus
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'digitaltoad/vim-pug'
-Plug 'tmux-plugins/vim-tmux' " tmux
-Plug 'dag/vim-fish'  " fish
-Plug 'chr4/nginx.vim' " nginx
-" Plug 'tpope/vim-rhubarb' " hub extension for fugitive
-" Plug 'tpope/vim-sensible'
-" Plug 'vim-scripts/gitignore.vim'
-" Plug 'deoplete-plugins/deoplete-jedi'
-" Plug 'neoclide/coc.nvim'
-" Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'sodapopcan/vim-twiggy'
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
-" Plug 'liuchengxu/vista.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'dense-analysis/ale'
+Plug 'jiangmiao/auto-pairs'
+Plug 'prettier/vim-prettier'
+
+
+" Plug 'skanehira/preview-markdown.vim'
 call plug#end()
 " }}}
 
@@ -101,7 +73,6 @@ set spelllang=en_us
 " Customize completion menu
 set completeopt=noinsert,menuone,noselect
 
-" set guifont="Fira Code:h16"
 " set clipboard=unnamedplus
 " set nowrap
 set clipboard=unnamed
@@ -119,7 +90,6 @@ set wildignore+=*~,*.swp,*.tmp
 set wildignore+=*.bmp,*.jpg,*.png,*.gif,*.ico
 set wildignore+=*.pyc,*.pyo,*.pyd,__pycache__
 set wildignore+=.idea,.vscode
-
 
 let mapleader = ','
 
@@ -143,16 +113,16 @@ nnoremap V 0v$
 nnoremap C 0d$
 nnoremap D 0d$
 
-inoremap <silent> kk <Esc>
+" inoremap <silent> kk <Esc>
 
 inoremap <C-h> <left>
 inoremap <C-l> <right>
-" inoremap <C-j> <down>
-" inoremap <C-k> <up>
-inoremap <C-n> <down>
-inoremap <C-p> <up>
+inoremap <C-j> <down>
+inoremap <C-k> <up>
+" inoremap <C-n> <down>
+" inoremap <C-p> <up>
 " inoremap <M-h> <left>
-inoremap <C-j> <Bs>
+inoremap <C-c> <Bs>
 
 nnoremap <C-j> <C-e>
 nnoremap <C-k> <C-y>
@@ -195,39 +165,29 @@ map <silent> <leader>z :NERDTreeToggle<CR>
 " autocmd vimenter * NERDTree
 " }}}
 
-" vim-gfm-syntax {{{
-let g:gfm_syntax_enable_always = 0
-let g:gfm_syntax_highlight_emoji = 0
-let g:gfm_syntax_enable_filetypes = ['markdown']
-" }}}
-
-" html5 {{{
-let g:html5_event_handler_attributes_complete = 0
-let g:html5_rdfa_attributes_complete = 0
-let g:html5_microdata_attributes_complete = 0
-let g:html5_aria_attributes_complete = 0
-" }}}
+" auto pair {{{ 
+let g:AutoPairsMapCh = 0
+"}}}
 
 
-" vim-terraform {{{
-let g:terraform_fmt_on_save = 1
-" }}}
-
-" vim-helm {{{
-let g:ansible_extra_keywords_highlight = 1
-let g:ansible_template_syntaxes = {
-  \   '*.json.j2': 'json',
-  \   '*.(ba)?sh.j2': 'sh',
-  \   '*.ya?ml.j2': 'yaml',
-  \   '*.xml.j2': 'xml',
-  \   '*.conf.j2': 'conf',
-  \   '*.ini.j2': 'ini'
-  \ }
+"{{{
+let g:ale_lint_on_save = 1
+let g:ale_xml_xmllint_indentsize = 2
+"}}}
+"
+" vim-prettier {{{
+" let g:prettier#autoformat = 0
+" let g:prettier#config#print_width = 120 
+" autocmd TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml PrettierAsync
 " }}}
 
 
-" scss-syntax {{{
-au BufRead,BufNewFile *.scss set filetype=scss.css
+" dense-analysis/ale {{{
+" let g:ale_fix_on_save = 1
+" \ linter 'python': ['flake8','pydocstyle','bandit','mypy'] 
+" \ fixer  'python': ['black','isort']
+" let g:ale_linter= { }
+" let g:ale_fixers = { 'javascript': ['prettier', 'eslint']}
 " }}}
 
 
@@ -261,12 +221,24 @@ autocmd VimEnter * call ArilineInit()
 
 
 " preview-makrdown {{{  
-let g:preview_markdown_parser = 'glow'
-let g:preview_markdown_vertical = 1
-let g:preview_makrdown_auto_update =1
-nmap <silent> <leader>; :PreviewMarkdown<CR>
+" let g:preview_markdown_parser = 'glow'
+" let g:preview_markdown_vertical = 1
+" let g:preview_makrdown_auto_update =1
+" nmap <silent> <leader>; :PreviewMarkdown<CR>
 " let g:preview_markdown_parser = 'mdcat'
 " let g:vim_markdown_folding_disabled = 1
+" }}}
+
+
+" deoplete {{{
+let g:python3_host_prog="/usr/bin/python3"
+let g:deoplete#enable_at_startup = 1
+" let g:deoplete#auto_complete=1
+" let g:deoplete#sources#jedi#enable_typeinfo = 0 "gotta go fast
+" call deoplete#custom#var('omni', 'functions', {
+	" \   'css': [ 'csscomplete#CompleteCSS' ]
+	" \ })
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif 
 " }}}
 
 
@@ -331,94 +303,9 @@ endfunction
 
 command! FzfNeighFiles call s:fzf_neighbouring_files()
 command! FzfNeighDirs call s:fzf_neighbouring_dirs()
+
 " }}} 
 
-
-" deoplete {{{
-let g:python3_host_prog="/usr/bin/python3"
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete=1
-let g:deoplete#sources#jedi#enable_typeinfo = 0 "gotta go fast
-call deoplete#custom#var('omni', 'functions', {
-	\   'css': [ 'csscomplete#CompleteCSS' ]
-	\ })
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif 
-" }}}
-
-
-" python-mode {{{ 
-" 注意如果使用了 rope 一般是项目根目录打开文件，不要切到子目录
-" set noautochdir 注意这个自动切换目录会使rope找目录不正确，禁用，坑死我
-" 如果你发现找不到你的 package 或者系统的，编辑你的代码根目录下 .ropeproject/config.py 里的文件就可以了
-" 比如加上 prefs.add('python_path', '/usr/local/lib/python2.7/site-packages/') 就可以找到系统包了
-
-" when PYTHON_VERSION env variable is set, use python2. default Use python3
-" ch: 如果设置了 export PYTHON_VERSION=2 环境变量使用 python2 ，否则默认 python3
-if $PYTHON_VERSION == '2'
-    let g:pymode_python = 'python'  " Values are `python`, `python3`, `disable`.
-else
-    let g:pymode_python = 'python3'  " Values are `python`, `python3`, `disable`.
-endif
-let g:pymode_paths = reverse(split(globpath(getcwd().'/eggs', '*'), '\n'))    " support zc.buildout
-let g:pymode_trim_whitespaces = 1
-let g:pymode_quickfix_maxheight = 3
-let g:pymode_indent = 1
-let g:pymode_folding = 1
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_bind = "<C-d>"  " NOTE: use ctrl+d insert ipdb
-let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace() #BREAKPOINT TODO REMOVE; from nose.tools import set_trace; set_trace()'
-
-let g:pymode_run = 1
-let g:pymode_run_bind = "<C-e>"
-let g:pymode_virtualenv = 1
-let g:pymode_virtualenv_path = $VIRTUAL_ENV
-
-" Override view python doc key shortcut to Ctrl-Shift-d
-let g:pymode_doc=1
-let g:pymode_doc_bind = 'K'
-
-autocmd CompleteDone * pclose
-autocmd FileType python setlocal omnifunc=RopeCompleteFunc
-" WARNING: rope complete conflict with jedi, choose one of them
-let g:pymode_rope = 1
-let g:pymode_rope_autoimport = 0
-let g:pymode_rope_complete_on_dot = 0
-let g:pymode_rope_lookup_project = 0
-let g:pymode_rope_goto_definition_bind = "<C-]>"
-" let g:pymode_rope_goto_definition_cmd = 'vnew'
-let g:pymode_rope_goto_definition_cmd = 'e'
-let g:pymode_rope_regenerate_on_write = 0
-command PR PymodeRopeRegenerate
-
-let g:pymode_lint = 1
-let g:pymode_lint_on_write = 1
-let g:pymode_lint_on_fly = 0
-let g:pymode_lint_message = 1
-let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint']
-let g:pymode_lint_ignore = ["C0103, C0111, C0301, C0304, C0325, E0702, E1120, R0201, R0903, R0911, R0912, R0913, R1705, W0105, W0108, W0110, W0201, W0221, W0223, W0235, W0403, W0511, W0622, W0703, W1202"]
-let g:pymode_lint_options_mccabe = { 'complexity': 15 }
-let g:pymode_lint_signs = 1
-" if you want use emoji you shoud set : Iterm2->Profiles->Text->Use Unicode versoin 9 widths
-let g:pymode_lint_todo_symbol = '😡'
-" let g:pymode_lint_error_symbol = '❌'
-" let g:pymode_lint_comment_symbol = '😢'
-" let g:pymode_lint_comment_symbol = "❗"
-let g:pymode_lint_error_symbol = "\U2717"
-let g:pymode_lint_comment_symbol = "\u2757"
-let g:pymode_lint_visual_symbol = "\u0021"
-
-" 修改默认的红线为浅色，solorized黑色主题
-highlight ColorColumn ctermbg=233
-let g:pymode_lint_cwindow = 0
-let g:pymode_options_max_line_length = 120
-let g:pymode_options_colorcolumn = 1
-" 指定UltiSnips python的docstring风格, sphinx, google, numpy
-let g:ultisnips_python_style = 'sphinx'
-" http://stackoverflow.com/questions/16021297/how-to-map-alias-a-command-in-vim, PymodeLint映射成PL
-command PL PymodeLint
-command PA PymodeLintAuto    " auto fix pep8
-noremap <leader>p :Neoformat<cr>  " normal mode use leader(,)+p autopep8 format code
-" }}}
 
 
 " Install plug for neovim
