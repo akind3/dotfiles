@@ -25,26 +25,15 @@ nnoremap V 0v$
 nnoremap C 0d$
 nnoremap D 0d$
 
-inoremap <C-h> <left>
-inoremap <C-l> <right>
-inoremap <C-j> <down>
-inoremap <C-k> <up>
-
-nnoremap <C-j> <C-e>
-nnoremap <C-k> <C-y>
-nnoremap <C-l> <right> 
-nnoremap <C-h> <left>
-" nnoremap <C-l> zl
-" nnoremap <C-h> zh
-inoremap <silent> <C-c> <Bs>
+inoremap <C-n> <Down>
+inoremap <C-p> <Up> 
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
 
 nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
-
-inoremap <C-m>  <Bs>
-nnoremap <C-m>  <Bs>
 
 nnoremap <Up> <Nop>
 nnoremap <Down> <Nop>

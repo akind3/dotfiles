@@ -1,4 +1,4 @@
-" Plug {{{ 
+" Plug {{{
 call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdtree'
@@ -7,8 +7,8 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -93,49 +93,20 @@ set wildignore+=.idea,.vscode
 
 let mapleader = ','
 
-nnoremap <Up> <Nop>
-nnoremap <Down> <Nop>
-nnoremap <Left> <Nop>
-nnoremap <Right> <Nop>
-" nnoremap <Bs> <Nop>
-nnoremap <Del> <Nop>
-
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-" inoremap <Bs> <Nop>
-inoremap <Del> <Nop>
-inoremap <C-n> <Nop>
-
 nnoremap Y 0y$
 nnoremap V 0v$
 nnoremap C 0d$
 nnoremap D 0d$
 
-" inoremap <silent> kk <Esc>
-
-inoremap <C-h> <left>
-inoremap <C-l> <right>
-inoremap <C-j> <down>
-inoremap <C-k> <up>
-" inoremap <C-n> <down>
-" inoremap <C-p> <up>
-" inoremap <M-h> <left>
-inoremap <C-c> <Bs>
-
-nnoremap <C-j> <C-e>
-nnoremap <C-k> <C-y>
-nnoremap <C-l> <right> 
-nnoremap <C-h> <left>
-" nnoremap <C-l> zl
-" nnoremap <C-h> zh
+inoremap <C-n> <Down>
+inoremap <C-p> <Up>
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
 
 nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
-
 
 nnoremap <silent> <leader>n :new <CR>
 nnoremap <silent> <leader>vn :vnew <CR>
@@ -205,18 +176,18 @@ nnoremap <silent> <Leader>m :Tagbar<CR>
 "
 
 " vim-airline {{{ 
-let g:airline_powerline_fonts=1
-let g:airline_theme = 'wombat'
-let g:airline#extensions#tabline#enabled = 1
-function! ArilineInit()
-    let g:airline_section_a = airline#section#create(['mode', ' ', 'branch'])
-    let g:airline_section_b = airline#section#create_left(['ffenc', 'hunks', '%F'])
-    "let g:airline_section_c = airline#section#create(['filetype'])
-    let g:airline_section_x = airline#section#create(['%P'])
-    let g:airline_section_y = airline#section#create(['%B'])
-    let g:airline_section_z = airline#section#create_right(['%l', '%c'])
-endfunction
-autocmd VimEnter * call ArilineInit()
+"let g:airline_powerline_fonts=1
+"let g:airline_theme = 'wombat'
+"let g:airline#extensions#tabline#enabled = 1
+"function! ArilineInit()
+"    let g:airline_section_a = airline#section#create(['mode', ' ', 'branch'])
+"    let g:airline_section_b = airline#section#create_left(['ffenc', 'hunks', '%F'])
+"    "let g:airline_section_c = airline#section#create(['filetype'])
+"    let g:airline_section_x = airline#section#create(['%P'])
+"    let g:airline_section_y = airline#section#create(['%B'])
+"    let g:airline_section_z = airline#section#create_right(['%l', '%c'])
+"endfunction
+"autocmd VimEnter * call ArilineInit()
 " }}}
 
 
