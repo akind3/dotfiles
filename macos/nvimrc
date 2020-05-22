@@ -102,6 +102,8 @@ inoremap <C-n> <Down>
 inoremap <C-p> <Up>
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
+nnoremap <C-j> <C-e>
+nnoremap <C-k> <C-y>
 
 nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j

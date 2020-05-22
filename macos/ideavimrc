@@ -1,4 +1,4 @@
-set nocompatible " be iMproved, required
+
 set nu
 set rnu
 set clipboard=unnamed
@@ -24,11 +24,6 @@ nnoremap Y 0y$
 nnoremap V 0v$
 nnoremap C 0d$
 nnoremap D 0d$
-
-inoremap <C-n> <Down>
-inoremap <C-p> <Up> 
-inoremap <C-f> <Right>
-inoremap <C-b> <Left>
 
 nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
