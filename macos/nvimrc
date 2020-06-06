@@ -98,12 +98,22 @@ nnoremap V 0v$
 nnoremap C 0d$
 nnoremap D 0d$
 
-inoremap <C-n> <Down>
+inoremap <C-b> <Backspace>
+inoremap <C-x> <Del>
+
 inoremap <C-p> <Up>
-inoremap <C-f> <Right>
-inoremap <C-b> <Left>
-nnoremap <C-j> <C-e>
-nnoremap <C-k> <C-y>
+inoremap <C-n> <Down>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <C-k> <Up>
+inoremap <C-j> <Down>
+
+nnoremap <C-p> <Up>
+nnoremap <C-n> <Down>
+nnoremap <C-h> <Left>
+nnoremap <C-l> <Right>
+nnoremap <C-k> <Up>
+nnoremap <C-j> <Down>
 
 nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
