@@ -1,33 +1,69 @@
-export ZSH="/Users/akin/.oh-my-zsh"
+export LANG="en_US.UTF-8"
+export HISTSIZE=10000
+export SAVEHIST=$HISTSIZE
+# Command history configuration
+if [ -z "$HISTFILE" ]; then
+    HISTFILE=$HOME/.zsh_history
+fi
 
-ZSH_THEME="bira"
+# Show history
+case $HIST_STAMPS in
+  "mm/dd/yyyy") alias history='fc -fl 1' ;;
+  "dd.mm.yyyy") alias history='fc -El 1' ;;
+  "yyyy-mm-dd") alias history='fc -il 1' ;;
+  *) alias history='fc -l 1' ;;
+esac
 
-plugins=(autojump 
-         vi-mode 
-         tmux 
-         git
-         zsh-autosuggestions 
-         zsh-completions 
-         history-substring-search 
-         zsh-syntax-highlighting)
+setopt append_history
+setopt extended_history
+setopt hist_expire_dups_first
+#setopt hist_ignore_dups # ignore duplication command history list
+setopt hist_ignore_space
+setopt hist_verify
+setopt inc_append_history
+#setopt share_history # share command history data
+
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "themes/bira", as:theme, from:oh-my-zsh
+zplug "plugins/vi-mode", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/tmux", from:oh-my-zsh
+zplug "plugins/autojump", from:oh-my-zsh
+zplug "zsh-users/zsh-autosuggestions"
+zplug "lib/completion", from:oh-my-zsh
+zplug "zdharma/fast-syntax-highlighting"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "b4b4r07/emoji-cli"
+
+# fzf
+zplug 'junegunn/fzf', \
+      as:command, \
+      use:'bin/{fzf,fzf-tmux}', \
+      if:"[[ $OSTYPE == linux* || $OSTYPE == darwin* ]]", \
+      hook-build:'./install --key-bindings --completion --no-update-rc'
+zplug "junegunn/fzf", from:github, use:"shell/completion.zsh"
+zplug "junegunn/fzf", from:github, use:"shell/key-bindings.zsh"
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# load plugins
+zplug load  
+
+# zplug check returns true if the given repository exists
+if zplug check b4b4r07/enhancd; then
+    # setting if enhancd is available
+    export ENHANCD_FILTER=fzf-tmux
+fi
+
 
 # when filter https package using wireshark. uncomment below
 export SSLKEYLOGFILE="$HOME/tls/sslkeylog.log"
 export python3="$HOME/.pyenv/shims/python3"
-
-source $ZSH/oh-my-zsh.sh
-
-#eval "$(pyenv init -)"
-#eval "$(pyenv virtualenv-init -)"
-
-# fzf settings
-export FD_OPTION="--follow --exclude .git --exclude node_modules --exclude __pycache__ "
-export FZF_DEFAULT_OPTS='--layout=reverse --border'
-export FZF_DEFAULT_COMMAND="fd --type f $FD_OPTION"
-export FZF_CTRL_T_COMMAND="fd $FD_OPTION"
-export FZF_ALT_C_COMMAND="fd --type d $FD_OPTION"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# iterm option c issue fix
-bindkey "ç" fzf-cd-widget
-
