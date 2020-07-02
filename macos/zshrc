@@ -23,7 +23,10 @@ setopt hist_verify
 setopt inc_append_history
 #setopt share_history # share command history data
 
-export ZPLUG_HOME=/usr/local/opt/zplug
+# import aliases
+[  -f $HOME/.aliases ] && source $HOME/.aliases
+
+export ZPLUG_HOME=$HOME/.zplug
 source $ZPLUG_HOME/init.zsh
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "themes/bira", as:theme, from:oh-my-zsh
@@ -32,11 +35,11 @@ zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/autojump", from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting"
 zplug "lib/completion", from:oh-my-zsh
-zplug "zdharma/fast-syntax-highlighting"
+#zplug "zdharma/fast-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "b4b4r07/emoji-cli"
-
 # fzf
 zplug 'junegunn/fzf', \
       as:command, \
@@ -64,6 +67,8 @@ if zplug check b4b4r07/enhancd; then
 fi
 
 
-# when filter https package using wireshark. uncomment below
-export SSLKEYLOGFILE="$HOME/tls/sslkeylog.log"
-export python3="$HOME/.pyenv/shims/python3"
+# When filter https package using wireshark. uncomment below
+#export SSLKEYLOGFILE="$HOME/tls/sslkeylog.log"
+#export python3="$HOME/.pyenv/shims/python3"
+
+
