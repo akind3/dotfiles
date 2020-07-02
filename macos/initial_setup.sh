@@ -31,3 +31,9 @@ curl -fLo $HOME/.tmux.conf --create-dirs  $DOTFILES_BASE/tmux.conf
 curl -fLo $HOME/.config/nvim/init.vim --create-dirs  $DOTFILES_BASE/nvimrc
 ln -s $HOME/.config/nvim/init.vim  $HOME/.nvimrc
 curl -fLo $HOME/.aliases --create-dirs  $DOTFILES_BASE/aliases
+
+
+# Install fonts
+brew tap homebrew/cask-fonts 
+brew cask install font-fira-code font-fira-code-nerd-font 
+brew cask install font-source-code-pro font-source-code-pro-for-powerline
