@@ -17,7 +17,7 @@ esac
 setopt append_history
 setopt extended_history
 setopt hist_expire_dups_first
-#setopt hist_ignore_dups # ignore duplication command history list
+setopt hist_ignore_dups # ignore duplication command history list
 setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
@@ -65,7 +65,6 @@ if zplug check b4b4r07/enhancd; then
     # setting if enhancd is available
     export ENHANCD_FILTER=fzf-tmux
 fi
-
 
 # When filter https package using wireshark. uncomment below
 #export SSLKEYLOGFILE="$HOME/tls/sslkeylog.log"
