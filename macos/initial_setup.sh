@@ -37,3 +37,6 @@ curl -fLo $HOME/.aliases --create-dirs  $DOTFILES_BASE/aliases
 brew tap homebrew/cask-fonts 
 brew cask install font-fira-code font-fira-code-nerd-font 
 brew cask install font-source-code-pro font-source-code-pro-for-powerline
+
+# Install fd (faster than find)
+brew install fd

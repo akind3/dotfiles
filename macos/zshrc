@@ -66,8 +66,22 @@ if zplug check b4b4r07/enhancd; then
     export ENHANCD_FILTER=fzf-tmux
 fi
 
+# Fzf options
+export FD_OPTION=" --hidden --follow --exclude .git --exclude node_modules --exclude __pycache__ "
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS" --layout=reverse --inline-info --height=50% "
+export FZF_DEFAULT_COMMAND="fd --type f $FD_OPTION"
+export FZF_CTRL_T_COMMAND="fd $FD_OPTION"
+export FZF_ALT_C_COMMAND="fd --type d $FD_OPTION"
+
 # When filter https package using wireshark. uncomment below
 #export SSLKEYLOGFILE="$HOME/tls/sslkeylog.log"
 #export python3="$HOME/.pyenv/shims/python3"
 
+# key-binding for zsh-history-substring-search 
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
+# Pycharm path
+export PATH=$HOME/jetbrains:$PATH

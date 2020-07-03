@@ -1,4 +1,6 @@
+alias hg='history | grep'
 alias ll="ls -la"
+alias mrg='rg --column --line-number --no-heading --color=always --smart-case '
 alias sshc7='ssh ckt@c7work'
 alias pip3='/usr/local/bin/python3 -m pip'
 alias venv='/usr/local/bin/python3 -m venv --copies '
@@ -43,3 +45,4 @@ alias glgd="git log -p --full-diff"
 alias gnpm="npm -g --save-dev" 
 alias npm="npm -g --save-dev" 
 alias lnpm="npm --save-dev" 
+
