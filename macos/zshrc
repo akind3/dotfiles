@@ -68,14 +68,6 @@ if zplug check b4b4r07/enhancd; then
     export ENHANCD_FILTER=fzf-tmux
 fi
 
-
-# Fzf options
-# export FD_OPTION=" --hidden --follow --exclude .git --exclude node_modules --exclude __pycache__ "
-# export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS" --layout=reverse --inline-info --height=50% "
-# export FZF_DEFAULT_COMMAND="fd --type f $FD_OPTION"
-# export FZF_CTRL_T_COMMAND="fd $FD_OPTION"
-# export FZF_ALT_C_COMMAND="fd --type d $FD_OPTION"
-
 # Exclude those directories even if not listed in .gitignore, or if .gitignore is missing
 FD_OPTIONS="--follow --exclude .git --exclude node_modules"
 
