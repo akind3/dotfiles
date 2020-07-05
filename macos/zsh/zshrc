@@ -1,0 +1,16 @@
+# load fzf settings
+source $DOTFILES/zplug.sh
+source $DOTFILES/fzf.sh
+
+# When filter https package using wireshark. uncomment below
+#export SSLKEYLOGFILE="$HOME/tls/sslkeylog.log"
+#export python3="$HOME/.pyenv/shims/python3"
+
+# key-binding for zsh-history-substring-search 
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+# load aliases 
+source $DOTFILES/aliases

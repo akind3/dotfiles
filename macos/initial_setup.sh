@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export DOTFILES="${HOME}/coding/dotfiles/macos"
+
 # install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
@@ -23,20 +25,12 @@ export TMUX_HOME=$HOME/.tmux
 # Install plug for neovim
 curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
- Put dotfiles to places
+# Put dotfiles to places
 DOTFILES_BASE=https://raw.githubusercontent.com/akind3/dotfiles/master/macos
-rm -f $HOME/{.zshrc, .tmux.conf, .nvimrc, .aliases} 
-curl -fLo $HOME/.zshrc --create-dirs  $DOTFILES_BASE/zshrc
-curl -fLo $HOME/.tmux.conf --create-dirs  $DOTFILES_BASE/tmux.conf
-curl -fLo $HOME/.config/nvim/init.vim --create-dirs  $DOTFILES_BASE/nvimrc
-ln -s $HOME/.config/nvim/init.vim  $HOME/.nvimrc
-curl -fLo $HOME/.aliases --create-dirs  $DOTFILES_BASE/aliases
-
-
-# Install fonts
-brew tap homebrew/cask-fonts 
-brew cask install font-fira-code font-fira-code-nerd-font 
-brew cask install font-source-code-pro font-source-code-pro-for-powerline
-
-# Install fd (faster than find)
-brew install fd bat ripgrep
+[ -d $HOME/coding/dotfiles ] && rm -rf $HOME/coding/dotfiles && git clone https://github.com/akind3/dotfiles.git $HOME/coding/dotfiles
+rm -f $HOME/{.zshenv, .zshrc, .aliases, .tmux.conf, .nvimrc} 
+ls -s  $DOTFILES/zshenv $HOME/.zshenv
+ls -s  $DOTFILES/zshrc $HOME/.zshrc
+ls -s  $DOTFILES/tmux.conf $HOME/.tmux.conf 
+[ -f $HOME/.config/nvim/init.vim ] && rm -f $HOME/.config/nvim/init.vim
+ls -s  $DOTFILES/nvimrc $HOME/.config/nvim/init.vim

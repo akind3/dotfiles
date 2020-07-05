@@ -1,3 +1,7 @@
+# import $HOME/.aliases if exists
+[  -f $HOME/.aliases ] && source $HOME/.aliases
+
+alias jdot="cd $DOTFILES/coding/dotfiles/macos"
 alias hg='history | grep'
 alias ll="ls -la"
 alias mrg='rg --column --line-number --no-heading --color=always --smart-case '

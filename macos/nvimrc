@@ -6,8 +6,8 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'dracula/vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -22,7 +22,9 @@ Plug 'prettier/vim-prettier'
 call plug#end()
 
 " Color theme 
-colorscheme molokai
+" colorscheme molokai
+" colorscheme solarized8
+colorscheme dracula
 
 " Basic settings 
 set nocompatible " be iMproved, required
@@ -163,19 +165,22 @@ nnoremap <silent> <Leader>m :Tagbar<CR>
 " nnoremap <silent> <leader>tm :TableModeToggle<CR>
 " nnoremap <silent> <leader>tr :TableModeRealign<CR>
 
-" vim-airline 
-" let g:airline_powerline_fonts=1
-" let g:airline_theme = 'wombat'
-" let g:airline#extensions#tabline#enabled = 1
-"function! ArilineInit()
-"    let g:airline_section_a = airline#section#create(['mode', ' ', 'branch'])
-"    let g:airline_section_b = airline#section#create_left(['ffenc', 'hunks', '%F'])
-"    "let g:airline_section_c = airline#section#create(['filetype'])
-"    let g:airline_section_x = airline#section#create(['%P'])
-"    let g:airline_section_y = airline#section#create(['%B'])
-"    let g:airline_section_z = airline#section#create_right(['%l', '%c'])
-"endfunction
-" autocmd VimEnter * call ArilineInit()
+ " vim-airline 
+let g:airline_powerline_fonts=1
+let g:airline_theme = 'wombat'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'default'
+function! ArilineInit()
+    let g:airline_section_a = airline#section#create(['mode', ' ', 'branch'])
+    let g:airline_section_b = airline#section#create_left(['ffenc', 'hunks', '%F'])
+    "let g:airline_section_c = airline#section#create(['filetype'])
+    let g:airline_section_x = airline#section#create(['%P'])
+    let g:airline_section_y = airline#section#create(['%B'])
+    let g:airline_section_z = airline#section#create_right(['%l', '%c'])
+endfunction
+autocmd VimEnter * call ArilineInit()
 
 " preview-makrdown 
 " let g:preview_markdown_parser = 'glow'
