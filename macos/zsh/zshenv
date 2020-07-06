@@ -1,7 +1,7 @@
 export DOTFILES="${HOME}/coding/dotfiles/macos"
 
 # source all environment variables
-source "${DOTFILES}/variables.sh"
+source "${DOTFILES}/zsh/variables.zsh"
 
 # launch ssh-agent is not running yet
 # if [ -z "$SSH_AUTH_SOCK" ] ; then

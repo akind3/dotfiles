@@ -4,7 +4,8 @@ source $ZPLUG_HOME/init.zsh
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "themes/bira", as:theme, from:oh-my-zsh
 zplug "plugins/vi-mode", from:oh-my-zsh
-zplug "plugins/git", from:oh-my-zsh zplug "plugins/tmux", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh 
+zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/autojump", from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
