@@ -2,9 +2,14 @@
 
 export DOTFILES="${HOME}/coding/dotfiles/macos"
 
-# install homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+command_exists() {
+  command -v $1 >/dev/null 2>&1
+}
 
+# install homebrew
+if ! command_exists brew ;then 
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+fi
 # Install iterm2 zsh zplug tmux neovim
 brew cask install iterm2
 brew install zsh  tmux neovim 
@@ -34,3 +39,4 @@ ls -s  $DOTFILES/zshrc $HOME/.zshrc
 ls -s  $DOTFILES/tmux.conf $HOME/.tmux.conf 
 [ -f $HOME/.config/nvim/init.vim ] && rm -f $HOME/.config/nvim/init.vim
 ls -s  $DOTFILES/nvimrc $HOME/.config/nvim/init.vim
+

@@ -1,5 +1,5 @@
 export ZPLUG_HOME=$HOME/.zplug
-source $ZPLUG_HOME/init.zsh
+source ${ZPLUG_HOME}/init.zsh
 
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "themes/bira", as:theme, from:oh-my-zsh
@@ -13,6 +13,7 @@ zplug "lib/completion", from:oh-my-zsh
 zplug "zsh-users/zsh-history-substring-search"
 zplug "b4b4r07/emoji-cli"
 zplug "plugins/osx", from:oh-my-zsh
+zplug "plugins/colored-man-pages", from:oh-my-zsh
 # fzf
 zplug 'junegunn/fzf', \
       as:command, \

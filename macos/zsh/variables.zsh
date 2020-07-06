@@ -23,6 +23,3 @@ setopt hist_verify
 setopt inc_append_history
 #setopt share_history # share command history data
 
-# Pycharm path
-export PATH=$HOME/jetbrains:$PATH
-

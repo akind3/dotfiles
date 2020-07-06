@@ -1,6 +1,7 @@
 # import $HOME/.aliases if exists
 [  -f $HOME/.aliases ] && source $HOME/.aliases
 
+alias pyc='pycharm'
 alias jdot="cd $DOTFILES/coding/dotfiles/macos"
 alias hg='history | grep'
 alias ll="ls -la"
