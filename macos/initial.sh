@@ -17,7 +17,7 @@ fi
 brew bundle
 
 # setup zsh
-exec $DOTFILES/setup.sh
+source $DOTFILES/setup.sh
 
 # Install zplug if required
  ! [[ -d $HOME/.zplug ]] && curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
