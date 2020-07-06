@@ -1,4 +1,5 @@
 #!/bin/bash
+# setup zsh
 command_exists() {
   command -v $1 >/dev/null 2>&1
 }
@@ -8,11 +9,10 @@ if ! command_exists brew ;then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
-REPOS=$HOME/coding
-if [ -d $REPOS/dotfiles ] ; then 
-  cd $REPOS/dotfiles && git pull 
+if [ -d $REPOBASE/dotfiles ] ; then
+  cd $REPOBASE/dotfiles && git pull
 else 
-  cd $REPOS &&  git clone git@github.com/dotfiles.git 
+  cd $REPOBASE &&  git clone git@github.com/dotfiles.git
 fi
 
 if ! command_exists zsh  ; then
@@ -28,7 +28,6 @@ fi
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Put dotfiles to places
-DOTFILES="${HOME}/coding/dotfiles/macos/zsh"
 rm -f $HOME/{.zshrc, .zshenv}
-ln -s  $DOTFILES/zshenv $HOME/.zshenv
-ln -s  $DOTFILES/zshrc $HOME/.zshrc
+ln -s  $DOTFILES/zsh/zshenv $HOME/.zshenv
+ln -s  $DOTFILES/zsh/zshrc $HOME/.zshrc

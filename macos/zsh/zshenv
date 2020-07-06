@@ -1,5 +1,12 @@
 export DOTFILES="${HOME}/coding/dotfiles/macos"
 
+export CACHEDIR="$HOME/.local/share"
+
+[[ -d "$CACHEDIR" ]] || mkdir -p "$CACHEDIR"
+
+export EDITOR='nvim'
+export GIT_EDITOR='nvim'
+
 # source all environment variables
 source "${DOTFILES}/zsh/variables.zsh"
 
@@ -13,7 +20,3 @@ source "${DOTFILES}/zsh/variables.zsh"
   # do this once during system install
   # ssh-add -K $KEYFILES
 # fi
-
-# load nvm if available
-# TODO: uncomment when nvm is installed
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"

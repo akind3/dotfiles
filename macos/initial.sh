@@ -1,6 +1,8 @@
 #!/bin/bash
 
 export DOTFILES="${HOME}/coding/dotfiles/macos"
+export REPOS_BASE="$HOME/coding"
+
 
 command_exists() {
   command -v $1 >/dev/null 2>&1
@@ -10,15 +12,15 @@ command_exists() {
 if ! command_exists brew ;then 
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
-# Install iterm2 zsh zplug tmux neovim
-brew cask install iterm2
-brew install zsh  tmux neovim 
+
+# Install from Brewfiles
+brew bundle
+
+# setup zsh
+exec $DOTFILES/setup.sh
 
 # Install zplug if required
  ! [[ -d $HOME/.zplug ]] && curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
-
-# Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -31,12 +33,10 @@ export TMUX_HOME=$HOME/.tmux
 curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Put dotfiles to places
-DOTFILES_BASE=https://raw.githubusercontent.com/akind3/dotfiles/master/macos
 [ -d $HOME/coding/dotfiles ] && rm -rf $HOME/coding/dotfiles && git clone https://github.com/akind3/dotfiles.git $HOME/coding/dotfiles
-rm -f $HOME/{.zshenv, .zshrc, .aliases, .tmux.conf, .nvimrc} 
-ls -s  $DOTFILES/zshenv $HOME/.zshenv
-ls -s  $DOTFILES/zshrc $HOME/.zshrc
-ls -s  $DOTFILES/tmux.conf $HOME/.tmux.conf 
+rm -f $HOME/{.tmux.conf, .nvimrc}
+ls -s  $DOTFILES/tmux.conf $HOME/.tmux.conf
 [ -f $HOME/.config/nvim/init.vim ] && rm -f $HOME/.config/nvim/init.vim
 ls -s  $DOTFILES/nvimrc $HOME/.config/nvim/init.vim
+ls -s  $DOTFILES/nvimrc $HOME/.nvimrc
 

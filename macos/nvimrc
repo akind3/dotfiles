@@ -100,7 +100,6 @@ inoremap <C-k> <Up>
 inoremap <C-j> <Down>
 
 nnoremap <C-p> <Up>
-nnoremap <C-n> <Down>
 nnoremap <C-h> <Left>
 nnoremap <C-l> <Right>
 nnoremap <C-k> <Up>
