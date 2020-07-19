@@ -3,6 +3,9 @@
 echo -e "\\n\\nSetting MacOS settings"
 echo "=============================="
 
+#echo "ComputerName: setting hostname to X1"
+#sudo scutil --set ComputerName X1
+
 echo "Finder: show all filename extensions"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
@@ -202,4 +205,4 @@ defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
 echo "Kill affected applications"
 for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 2>&1; done
-efaults write NSGlobalDomain InitialKeyRepeat -int 15
+defaults write NSGlobalDomain InitialKeyRepeat -int 15

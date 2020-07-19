@@ -10,3 +10,6 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 # load aliases 
 source $DOTFILES/zsh/aliases.zsh
+
+#  load pyenv 
+source $DOTFILES/zsh/pyenv.zsh
