@@ -54,11 +54,11 @@ curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --c
 
 # Put dotfiles to places
 [ -d $HOME/coding/dotfiles ] && rm -rf $HOME/coding/dotfiles && git clone https://github.com/akind3/dotfiles.git $HOME/coding/dotfiles
-rm -f $HOME/{.zshrc, .zshenv, .tmux.conf, .nvimrc}
+rm -f $HOME/{.zshrc, .zshenv, .tmux.conf, .nvimrc, .gitconfig}
 ln -s  $DOTFILES/zsh/zshenv $HOME/.zshenv
 ln -s  $DOTFILES/zsh/zshrc $HOME/.zshrc
 ls -s  $DOTFILES/tmux.conf $HOME/.tmux.conf
 [ -f $HOME/.config/nvim/init.vim ] && rm -f $HOME/.config/nvim/init.vim
 ls -s  $DOTFILES/nvimrc $HOME/.config/nvim/init.vim
 ls -s  $DOTFILES/nvimrc $HOME/.nvimrc
-
+ls -s  $DOTFILES/git/gitconfig $HOME/.gitconfig

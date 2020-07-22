@@ -12,4 +12,9 @@ bindkey -M vicmd 'j' history-substring-search-down
 source $DOTFILES/zsh/aliases.zsh
 
 #  load pyenv 
-source $DOTFILES/zsh/pyenv.zsh
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+#  mysql 5.6 
+source $DOTFILES/zsh/mysql5.6.zsh
+

@@ -6,6 +6,9 @@ echo "=============================="
 #echo "ComputerName: setting hostname to X1"
 #sudo scutil --set ComputerName X1
 
+#echo "Hostname: setting hostname to X1"
+#sudo hostname X1
+
 echo "Finder: show all filename extensions"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
