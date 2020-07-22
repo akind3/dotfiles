@@ -1,13 +1,11 @@
-# import $HOME/.aliases if exists
-[  -f $HOME/.aliases ] && source $HOME/.aliases
-
 alias pyc='pycharm'
 alias jdot="cd $DOTFILES/coding/dotfiles/macos"
 alias hg='history | grep'
 alias ll="ls -la"
 alias mrg='rg --column --line-number --no-heading --color=always --smart-case '
 alias sshc7='ssh ckt@c7work'
-alias pip3='/usr/local/bin/python3 -m pip'
+# alias pip3='/usr/local/bin/python3 -m pip'
+# alias pip='/usr/local/bin/python3 -m pip'
 alias venv='/usr/local/bin/python3 -m venv --copies '
 alias ctags="`brew --prefix`/bin/ctags"
 alias vim="/usr/local/bin/nvim"
@@ -23,7 +21,7 @@ alias gbr="git branch"
 alias gbrv="git branch --v"
 alias ggeturl="git config --get remote.origin.url"
 # alias bs = bisect
-alias glg="git log"
+alias glg="git log --pretty=fuller"
 alias gcfg="git config --global"
 # alias cfga = config --global alias.
 alias gpu="git pull"
