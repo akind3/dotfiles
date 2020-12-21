@@ -12,3 +12,5 @@
 	required = true
 [log]
   date = iso-local
+[credential]
+	helper = store
