@@ -1,20 +1,35 @@
-# load fzf settings
-source $DOTFILES/zsh/zplug.zsh
-source $DOTFILES/zsh/fzf.zsh
+export LANG=en_US.UTF-8
+ZSH_THEME="bira"
+plugins=(autojump
+         vi-mode
+         tmux
+         git
+         fzf
+         zsh-autosuggestions
+         zsh-completions
+         history-substring-search
+         zsh-syntax-highlighting)
 
-# key-binding for zsh-history-substring-search 
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
+source $HOME/.oh-my-zsh/oh-my-zsh.sh
 
-# load aliases 
+# fzf plugin
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# load aliases
+export DOTFILES="${HOME}/coding/dotfiles/macos"
 source $DOTFILES/zsh/aliases.zsh
 
-#  load pyenv 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# load fzf settings
+#source $DOTFILES/zsh/zplug.zsh
+#source $DOTFILES/zsh/fzf.zsh
 
-#  mysql 5.6 
-source $DOTFILES/zsh/mysql5.6.zsh
+# key-binding for zsh-history-substring-search 
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down
+# bindkey -M vicmd 'k' history-substring-search-up
+# bindkey -M vicmd 'j' history-substring-search-down
+
+#  load pyenv
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
 

@@ -49,3 +49,10 @@ alias gnpm="npm -g --save-dev"
 alias npm="npm -g --save-dev" 
 alias lnpm="npm --save-dev" 
 
+special_git_clone() {
+    git clone --no-checkout https://github.com/$1.git tmp
+    mv tmp/.git .
+    rmdir tmp
+    git reset --hard HEAD
+}
+alias sgc="special_git_clone"
