@@ -31,7 +31,7 @@ fi
 
 # setup zsh
 [ -d $REPOBASE ] || mkdir -p $REPOBASE
-[ -d $REPOBASE/dotfiles ] && cd $REPOBASE/dotfiles && git pull
+[ -d $REPOBASE/dotfiles ] && cd $REPOBASE/dotfiles && git pull origin master
 [ ! -d $REPOBASE/dotfiles ] && cd $REPOBASE && git clone git@github.com:akind3/dotfiles.git
 
 if ! command_exists zsh  ; then
@@ -40,13 +40,9 @@ if ! command_exists zsh  ; then
   brew install zsh
 fi
 
-
 # Install oh-my-zsh
 mv $HOME/.oh-my-zsh $HOME/.oh-my-zsh.`date +%Y%m%d%H%M%S`
-wget  -O /tmp/ohmyzsh_install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-sed -e 's/exec/#exec/g' /tmp/ohmyzsh_install.sh > /tmp/ohmyzsh_install_mod.sh
-sh  /tmp/ohmyzsh_install_mod.sh 
-rm -f /tmp/ohmyzsh_install_mod.sh 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sed -e 's/ exec / #exec /g')"
 
 # install zsh plugins...
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
