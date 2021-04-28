@@ -5,7 +5,7 @@
 w32tm /config /manualpeerlist:ntp.ntsc.ac.cn,0x8 /syncfromflags:MANUAL
 
 @Rem 配置windows time 服务自动开启
-sc config w32time start=auto 
+sc config w32time start=delayed-auto
 net stop w32time 
 net start w32time 
 
