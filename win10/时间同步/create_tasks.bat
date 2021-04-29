@@ -1,6 +1,6 @@
 @Rem 创建 w32tm 服务配置的定时任务
-@Rem schtasks /create /sc onstart /rl highest /ru system /tn "windows_time_service_setting" /tr c:\w32time_setting.bat
-schtasks /create /sc onstart /ru system /tn "windows_time_service_setting" /tr c:\w32time_setting.bat
+@Rem schtasks /create /sc onlogon /rl highest /ru system /tn "windows_time_service_setting" /tr c:\w32time_setting.bat
+schtasks /create /sc onlogon /ru system /tn "windows_time_service_setting" /tr c:\w32time_setting.bat
 echo "task windows_time_service_setting created..."
 
 @Rem  wait 3 seconds
