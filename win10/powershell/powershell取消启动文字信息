@@ -1,0 +1,5 @@
+powershell 7
+  pwsh --nologo
+
+powershell 6
+  powershell /nologo
