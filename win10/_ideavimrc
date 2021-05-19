@@ -1,0 +1,56 @@
+set nu
+set rnu
+set clipboard=unnamed
+set clipboard+=ideaput
+set path +=autoload
+set path +=**
+set wildmenu
+set wildmode=longest,list
+set wildignore+=*.a,*.o
+set wildignore+=*.DS_Store,.git,.hg,.svn
+set wildignore+=*~,*.swp,*.tmp
+set wildignore+=*.bmp,*.jpg,*.png,*.gif,*.ico
+set wildignore+=*.pyc,*.pyo,*.pyd,__pycache__
+set wildignore+=.idea,.vscode
+" set nowrap
+set ideajoin
+
+"filetype on" required
+"filetype indent on " required
+" filetype plugin indent on " required
+
+let mapleader = ','
+
+nnoremap Y 0y$
+nnoremap V 0v$
+nnoremap C 0d$
+nnoremap D 0d$
+
+" inoremap <C-b> <Backspace>
+" inoremap <C-x> <Del>
+
+" inoremap <C-p> <Up>
+" inoremap <C-n> <Down>
+" inoremap <C-h> <Left>
+" inoremap <C-l> <Right>
+" inoremap <C-k> <Up>
+" inoremap <C-j> <Down>
+
+" nnoremap <C-p> <Up>
+" nnoremap <C-n> <Down>
+" nnoremap <C-h> <Left>
+" nnoremap <C-l> <Right>
+" nnoremap <C-k> <Up>
+" nnoremap <C-j> <Down>
+
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+
+nnoremap <silent> <leader>vs :vsplit <CR>
+nnoremap <silent> <leader>s :split <CR>
+nnoremap <silent> <leader>, :close! <CR>
+nnoremap <silent> <leader>q :quit <CR>
+nnoremap <silent> <leader>Q :quit! <CR>
+nnoremap <silent> <leader>. :w <CR>
