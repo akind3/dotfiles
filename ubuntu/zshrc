@@ -23,6 +23,8 @@ fi
 zplug load
 
 
+source $ZSH/oh-my-zsh.sh
+
 # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=6
 
 # autojump script ,used by wting/autojump
