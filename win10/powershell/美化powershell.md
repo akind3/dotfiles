@@ -2,16 +2,17 @@
 scoop bucket add nerd-fonts
 sudo scoop install  Cascadia-Code CascadiaCode-NF-Mono  CascadiaCode-NF
 
-// 安装 posh-git oh-my-posh 
+// 安装 posh-git oh-my-posh jump.location(类似linux上的j的跳转功能)
 Install-Module posh-git -Scope CurrentUser
 Install-Module oh-my-posh -Scope CurrentUser
 Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck
-
+Install-Module Jump.Location -Scope CurrentUser
 
 // 编辑powershell配置文件
 vim $profile
 Import-Module posh-git
 Import-Module oh-my-posh
+Import-Module Jump.Location
 Set-PoshPrompt -Theme paradox
 
 
