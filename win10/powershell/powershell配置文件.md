@@ -24,7 +24,8 @@ Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory
 $commandOverride = [ScriptBlock]{ param($Location) Write-Host $Location } 
 Set-PsFzfOption -AltCCommand $commandOverride
 
-Set-Location c:\users\akint
+#不要设置此项,会影响到vscode terminal.
+#Set-Location c:\users\akint
 
 function ssh_to_ubuntu{
    ssh akin@192.168.3.11
